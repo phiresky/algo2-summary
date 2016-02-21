@@ -60,9 +60,9 @@ Kapitel & Name & Laufzeit \\\hline
 
 *Output:*
 
-- While $\mathbf{r} \neq \mathbf{z}$
+- While $\mathbf{r} ≠ \mathbf{z}$
     - laufe in Richtung $\mathbf{z}$ bis $\mathbf{r}=\mathbf{z}$ oder $\exists i:r\in P_i$
-    - If $\mathbf{r}\neq\mathbf{z}$
+    - If $\mathbf{r}≠\mathbf{z}$
         - umlaufe $P_i$ und suche ein $\mathbf{q}\in \arg\min_{\mathbf{x}\in P_i} ||\mathbf{x} - \mathbf{z}||_2$
         - gehe zu $\mathbf{q}$
 
@@ -80,12 +80,12 @@ First fit
 ~   *
     * $B_1,\dots,B_m \leftarrow \emptyset$
     * For $i=1,\dots,m$
-        * Bestimme kleinstes j mit $b_i+\sum_{b\in B_j} b \leq h$
+        * Bestimme kleinstes j mit $b_i+\sum_{b\in B_j} b ≤ h$
         * Füge $b_i$ zu $B_j$ hinzu
 
 2-kompetitiv
 
-Falls $k_A \leq a + c k_{min}$ für alle Eingaben, heißt A c-kompetitiv.
+Falls $k_A ≤ a + c k_{min}$ für alle Eingaben, heißt A c-kompetitiv.
 
 Türsuche
 ~   *
@@ -125,7 +125,7 @@ Baum der kürzesten Wege (BkW) (Blätter sind Polygonecken)
 
 $\mathbf{x} := \begin{pmatrix}1\\ \mathbf{\bar x}\end{pmatrix}, \bar{\mathbf x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
 
-$\mathbb u^t \mathbb x := \begin{pmatrix}u_0&u_1&\dots&u_d\end{pmatrix} \cdot\begin{pmatrix}1\\x_1\\\vdots x_d\end{pmatrix}\geq  0$
+$\mathbb u^t \mathbb x := \begin{pmatrix}u_0&u_1&\dots&u_d\end{pmatrix} \cdot\begin{pmatrix}1\\x_1\\\vdots x_d\end{pmatrix}≥  0$
 
 $\mathbb u$ bezeichnet Halbraum und $\mathbb x$ einen seiner Punkte
 
@@ -139,13 +139,13 @@ $\mathbf x \in \mathbf u^* \Leftrightarrow \mathbf u \in \mathbf x^*$ (Dualität
 
 Verbindungsstrecke $\mathbf x := \mathbf a (1-t) + \mathbf b t,\quad t\in [0,1]$ wird genannt $\mathbf{ab}$.
 
-$M\subset A$ ist *konvex* wenn sie zu je zwei ihrer Punkte auch die Verbingungsstrecke enthält.
+$M⊂ A$ ist *konvex* wenn sie zu je zwei ihrer Punkte auch die Verbingungsstrecke enthält.
 
 Konvexe Hülle $[M]$ von $M$ ist Schnitt aller konvexen Obermengen.
 
-Ist $M\subset A$ bilden alle Halbräume, die M enthalten, eine konvexe Menge im Dualraum.
+Ist $M⊂ A$ bilden alle Halbräume, die M enthalten, eine konvexe Menge im Dualraum.
 
-Ist $M^*\subset A^*$ eine Halbraummenge, bilden alle Punkte, die in allen $m^*\in M^*$ enthalten sind, eine konvexe Menge im Primalraum $A$.
+Ist $M^*⊂ A^*$ eine Halbraummenge, bilden alle Punkte, die in allen $m^*\in M^*$ enthalten sind, eine konvexe Menge im Primalraum $A$.
 
 ## Konvexe Polyeder $P$
 
@@ -157,9 +157,9 @@ Jede Facectte liegt auf Rand eines Halbraums (FHR)
 
 P ist konvexe Hülle seiner Eckenmenge
 
-Ist $P$ ein konvexes Polyeder mit den Ecken $\mathbf p_1,\dots,\mathbf p_e$ und den FHRen $\mathbf u_1^*,\dots,\mathbf u_f^*$, hat die Menge $U^*:=\{\mathbf u^*|\mathbf u^* \supset P\} \subset A^*$ die Ecken $\mathbf w_1^*,\dots,\mathbf w_f^*$ und die FHRe $\mathbf p_1, \dots,\mathbf p_e$. Dual ausgedrückt heißt das, dass die Menge $U:=\{\mathbf u| \mathbf u^* \supset P\}\subset A$ die Ecken $\mathbf w_i$ und die FHRe $\mathbf p_i^*$ hat.
+Ist $P$ ein konvexes Polyeder mit den Ecken $\mathbf p_1,\dots,\mathbf p_e$ und den FHRen $\mathbf u_1^*,\dots,\mathbf u_f^*$, hat die Menge $U^*:=\{\mathbf u^*|\mathbf u^* \supset P\} ⊂ A^*$ die Ecken $\mathbf w_1^*,\dots,\mathbf w_f^*$ und die FHRe $\mathbf p_1, \dots,\mathbf p_e$. Dual ausgedrückt heißt das, dass die Menge $U:=\{\mathbf u| \mathbf u^* \supset P\}⊂ A$ die Ecken $\mathbf w_i$ und die FHRe $\mathbf p_i^*$ hat.
 
-Polyeder P und $U\subset A$ heißen dual zueinander.
+Polyeder P und $U⊂ A$ heißen dual zueinander.
 
 ## Euler: Knoten, Kanten, Facetten
 
@@ -178,17 +178,17 @@ Für jede Ecke $\mathbf p$:
 
 ## Konvexe Hülle
 
-*Input:* $P:=(\mathbf p_1,\dots, \mathbf p_n) \subset A^3$
+*Input:* $P:=(\mathbf p_1,\dots, \mathbf p_n) ⊂ A^3$
 
 *Output:* $[P]$
 
 1. Verschiebe P sodass Ursprung in P liegt
-2. $U_4 \leftarrow \mathbf p_1^* \cap \dots \cap \mathbf p_4^*$
+2. $U_4 \leftarrow \mathbf p_1^* ∩ \dots ∩ \mathbf p_4^*$
 3. For $i=5,\dots,n$
-    * (falls $U_4 \subset \mathbf p_i^*$, markiere $\mathbf p_i$ als gelöscht
+    * (falls $U_4 ⊂ \mathbf p_i^*$, markiere $\mathbf p_i$ als gelöscht
     * sonst verknüpfe $\mathbf p_i$ bidirektional mit einem Knoten von $U_4 \notin \mathbf p_i^*$
 4. For $i=5,\dots,n$
-    * $U_i \leftarrow U_{i-1}\cap\mathbf p_i^*$
+    * $U_i \leftarrow U_{i-1}∩\mathbf p_i^*$
     * ...zeug
 4. Dualisiere, verschiebe und gib $\bigcap_{\mathbf u \in U} \mathbf u^*-\mathbf v$ aus
 
@@ -198,7 +198,7 @@ Für jede Ecke $\mathbf p$:
 
 ## Voronoi-Gebiet
 
-eines der Punkte $\mathbf p_i$ ist $V_i=\{\mathbf x \in \mathbb R^2|\forall j=1,\dots,n:||\mathbf x - \mathbf p_i||_2 \leq ||\mathbf x - \mathbf p_j||_2 \}$
+eines der Punkte $\mathbf p_i$ ist $V_i=\{\mathbf x \in \mathbb R^2|\forall j=1,\dots,n:||\mathbf x - \mathbf p_i||_2 ≤ ||\mathbf x - \mathbf p_j||_2 \}$
 
 $V_i$ ist konvex da Schnitt der Halbebenen.
 
@@ -206,7 +206,7 @@ Voroni-Kreis (Punkte des Schnitts von drei Voronoi-Gebieten) ist *leer*.
 
 ## Delaunay-Triangulierung
 
-Delaunay-Triangulierung $D(P)$ einer Punktemenge P hat Kantenmenge $\{\mathbf p_i \mathbf p_j|V_i\cap V_j \text{ ist Kante des Voronoi-Diagramms } V(P)\}$.
+Delaunay-Triangulierung $D(P)$ einer Punktemenge P hat Kantenmenge $\{\mathbf p_i \mathbf p_j|V_i∩ V_j \text{ ist Kante des Voronoi-Diagramms } V(P)\}$.
 
 Ist der zu $V(P)$ duale Graph.
 
@@ -249,13 +249,13 @@ Das Symbol $\gamma(x,y) := \sum \gamma_{ij} x^i y^j$
 
 # Flussmaximierung
 
-Flussnetzwerk $F:= (G=(V,E), q \in V, s\in V, k:V^2\to \mathbb R_{\geq0})$
+Flussnetzwerk $F:= (G=(V,E), q \in V, s\in V, k:V^2\to \mathbb R_{≥0})$
 
-Graph zusammenhängend (für jeden Knoten ex. Weg von q zu s), $|E|\geq|V|-1$
+Graph zusammenhängend (für jeden Knoten ex. Weg von q zu s), $|E|≥|V|-1$
 
 Fluss $f:V^2\to\mathbb R$ mit
 
-(1) $f\leq k$
+(1) $f≤ k$
 (2) $\forall x,y\in V: f(x,y)=-f(y,x)$
 (3) $\forall x\in V\setminus\{q,s\}:\sum f(x,V):=\sum_{y\in V}f(x,y)=0$
 
@@ -297,7 +297,7 @@ Liftbar(x)
 ~   *
     * $x\in V\setminus \{q,s\}$
     * ü$(x) > 0$
-    * $h(x) \leq \min_{(x,y)\in E_f} h(x)$
+    * $h(x) ≤ \min_{(x,y)\in E_f} h(x)$
 
 Präfluss-Push:
 ~   *
@@ -311,7 +311,7 @@ Präfluss-Push:
 Leere(x)
 ~   *
     * while ü$(x)>0$
-        * if $i_x \leq Grad(x)$
+        * if $i_x ≤ Grad(x)$
             * if pushbar$(x,n_x(i_x))$ : push$(x,n_x(i_x))$
             * sonst: $i_x\mathrel+=1$
         * else
@@ -320,7 +320,7 @@ Leere(x)
 
 $L$ ist Liste aller $x\in V\setminus \{q,s\}$ mit x vor y falls pushbar(x,y)
 
-$n_x(i) \quad (1\leq i \leq Grad(x))$  sind Nachbarn von $x$ (auch Gegenrichtung)
+$n_x(i) \quad (1≤ i ≤ Grad(x))$  sind Nachbarn von $x$ (auch Gegenrichtung)
 
 $i_x$ ist Zähler (alle $n_x(i)$ mit $i\le i_x$ nicht pushbar)
 
@@ -329,7 +329,7 @@ An die Spitze
     * $\forall x\in V: i_x ← 1$
     * Generiere L
     * $x ← \text{Kopf}(L)$
-    * while $x \neq \text{NIL}$
+    * while $x ≠ \text{NIL}$
         * $h_{alt} ← h(x)$
         * Leere(x)
         * Falls $h_{alt} < h(x)$, setze x an Spitze von L
@@ -342,9 +342,9 @@ An die Spitze
 ## Paaren in bipartiten Graphen
 
 Paare
-~   * Input: Bipartiter Graph $(L\dot\cup R, E)$
-    * $V ← L\cup R\cup \{q,s\}$
-    * $\hat E ← (q,L) \cup \{(x,y) \subset L \times R \mid \langle x,y \rangle \in E\} \cup (R,s)$
+~   * Input: Bipartiter Graph $(L\dot∪ R, E)$
+    * $V ← L∪ R∪ \{q,s\}$
+    * $\hat E ← (q,L) ∪ \{(x,y) ⊂ L \times R \mid \langle x,y \rangle \in E\} ∪ (R,s)$
     * for all $(x,y)\in V^2$
         * $k(x,y) ← 1$ if $(x,y)\in \hat E$ else $0$
     * f ← FordFulkerson$((V,\hat E), q, s, k)$
@@ -374,7 +374,7 @@ Berechnung möglich in $O(|V|^3)$ bzw. $O(|V|\cdot|E|\log|V|)$
 Sei
 
 * $\bar G := (V, \bar E), \bar E := \{(x,y)|\langle y,x\rangle = \langle x,y\rangle \in E\}$
-* $k:V^2→ℝ_{\geq 0}, k(x,y):= \text{if }(\langle x, y\rangle \in E)\text{ then }\gamma(\langle x,y\rangle)\text{ else }0$
+* $k:V^2→ℝ_{≥ 0}, k(x,y):= \text{if }(\langle x, y\rangle \in E)\text{ then }\gamma(\langle x,y\rangle)\text{ else }0$
 * $x,z\in V$ beliebig
 
 Berechne maximalen Fluss
@@ -410,13 +410,13 @@ Für jede Punktmenge $P$ ist die kleinste Kugel $K(P)\supset P$ eindeutig.
 $K(P,R)$ ist Kugel die P enthält und R auf der Oberfläche hat
 
 Welzl
-~   * Input: $P,R\subset ℝ^d$, $K(P,R)$ exist., P,R endlich
+~   * Input: $P,R⊂ ℝ^d$, $K(P,R)$ exist., P,R endlich
     * if $P=\emptyset$ or $|R|=d+1$
         * $C ← K(R)$
     * else wähle $\mathbf p\in P$ zufällig
         * C ← Welzl$(P\setminus \{\mathbf p\}, R)$
         * if $\mathbf p \notin C$
-            * $C←\text{Welzl}(P\setminus \{\mathbf p\}, R\cup \{\mathbf p\})$
+            * $C←\text{Welzl}(P\setminus \{\mathbf p\}, R∪ \{\mathbf p\})$
     * Gib C aus
 
 ---
@@ -426,4 +426,4 @@ Welzl
 LP ist
 
 $$z(\mathbf x) := \mathbf{zx} = \text{max!}$$
-$$A\mathbf x ≥ \geq \mathbf a$$
+$$A\mathbf x ≥ \mathbf a$$
