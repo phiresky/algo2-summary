@@ -1,39 +1,3 @@
----
-#header-includes: \usepackage{unicode-math}
-mathfont: Latin Modern Math
----
-
-<style>dd ul{list-style-type:none}</style>
-
-$\def\-#1{\mathbf{#1}}$
-
-**Laufzeiten**
-
-\begin{tabulary}{\columnwidth}{@{}L@{}|@{}C@{}|@{}L@{}}
-Kapitel & Name & Laufzeit \\\hline
-1.1 & Pledge & \\
-1.2 & Wanze (Bug) & \\
-2.6 Zielsuche & Konvexe Hülle & erw: $O(n\log n)$, max: $O(n^2)$ \\
-6 Flüsse & Ford-Fulkerson & $O( |E| *W)$ (k Wert eines max. Flusses) \\
-6 Flüsse & Edmonds-Karp   & $O( |E| ^2 * |V| )$ \\
-6 Flüsse & Präfluss-Push  & $O( |V| ^2 * |E| )$ \\
-6 Flüsse & An-Die-Spitze  & $O( |V| ^3)$ \\
-7 & Paare & $O(|E| \cdot min\{|L|,|R|\})$ \\
-7 & Vergrößernder Weg & $O(|V|\cdot |E|)$ \\
-8.3 & Min Schnitt & $O(|V|^2 \log |V|)$ richtig mit $P\in \Theta(1/\log |V|)$\\
-9 & Welzl & mittl: $O(n)$ \\
-10 & Simplex & erw: $O(n^2 d)$, max: $\Omega(n^{d/2})$  \\
-10 & Ellipsoid & polyn.; in praxis langsamer als Simplex \\
-10 & Innere Punkte & polyn.; in praxis fast so gut wie Simplex \\
-10.5 & Seidel & $O(d^3 d! + dnd!)$ \\
-\end{tabulary}
-
-**Util**
-
-* $\-a \cdot \-b = |\-a||\-b| \cos\sphericalangle(\-a,\-b)$
-
----
-
 **I Geometrische Algorithmen**
 
 # Bewegungsplanung bei unvollständiger Information
@@ -208,7 +172,7 @@ Voroni-Kreis (Punkte des Schnitts von drei Voronoi-Gebieten) ist *leer*.
 
 ## Delaunay-Triangulierung
 
-Delaunay-Triangulierung $D(P)$ einer Punktemenge P hat Kantenmenge $\{\-p_i \-p_j|V_i∩ V_j \text{ ist Kante des Voronoi-Diagramms } V(P)\}$.
+Delaunay-Triangulierung $D(P)$ einer Punktemenge P hat Kantenmenge $\{\-p_i \-p_j|V_i∩ V_j$ ist Kante des Voronoi-Diagramms $V(P)\}$.
 
 Ist der zu $V(P)$ duale Graph.
 
@@ -247,7 +211,7 @@ Das Symbol $\gamma(x,y) := \sum \gamma_{ij} x^i y^j$
 
 ---
 
-** III Graphen-Algorithmen **
+**III Graphen-Algorithmen**
 
 # Flussmaximierung
 
@@ -425,6 +389,8 @@ Welzl
 
 # Lineare Programmierung
 
+## Lineare Programme
+
 LP ist
 
 $$z(\-x) := \-{zx} = \text{max!}$$
@@ -440,13 +406,114 @@ Die Punkte $\-x \in S$ heißen *zulässig*.
 
 Die Ecken von S liegen je auf d Hyperebenen (d Gleichungen des Gleichungssystems).
 
-$\-x$
-.
-
-.
+* Simplexalgorithmus: Iterativ Ecken entlang gehen, bis z maximal.
 
 
-.
+## Flussmaximierung als LP
+
+maximiere Summe der ausgehenden Flüsse aus der Quelle.
+
+Gleichungen zur Flusserhaltung (je eingehende Kanten - ausgehende Kanten = 0 ($≥$ und $≤$))
+
+Gleichungen zur Kapazitätsbeschränkung (Fluss $≥$ 0 und (Kapazität - Fluss) $≥$ 0)
+
+## Kürzester Weg als LP
+
+Suche Weg $1\leadsto 2$
+
+$$\sum_{(i,j)\in E} x_{ij}\gamma_{ij} = \text{min!}$$
+$$x_{ij} ≥ 0, (i,j)\in E$$
+$$\sum_j x_{ij} - \sum_j x_{ji} = \begin{cases}1&i=1\\-1&i=2\\0&sonst\end{cases}$$
+
+(Ausgehende Kanten = Eingehende Kanten außer für $i≠1,2$)
+
+negative Kreise $⇒$ keine endliche Lösung. Erzwingbar durch $x_{ij} ≤ 1, (i,j)\in E$ (?)
+
+## *ggf. todo*
+
+## Simplexalgorithmus
+
+$\-y(\-x) = A\-x$
+$$\left[\begin{matrix}y_1\\\vdots\\y_m\end{matrix}\right] = \left[\begin{matrix}a_{11}&\dots&a_{1n}\\\vdots&&\vdots\\a_{m1}&\dots&a_{mn}\end{matrix}\right]\left[\begin{matrix}x_1\\\vdots\\x_n\end{matrix}\right]$$
+
+wobei $n=d+1$ und $x_n=1$
+
+Hyperebenen $H_i:y_i(\-x)=0$
+
+Gegeben: $A=[a_{ij}]_{i,j=1,1}^{m,n}$
+
+$$
+\begin{array}{c|ccccc}
+&&x_j&&x_s&\\ \hline
+&&\vdots&&\vdots&\\
+y_i&\dots&a_{ij}&\dots&a_{is}&\dots\\
+&&\vdots&&\vdots&\\
+y_r&\dots&a_{rj}&\dots&a_{rs}&\dots\\
+&&\vdots&&\vdots&\\
+\end{array}$$
+
+Gesucht: $B=[b_{ij}]_{i,j=1,1}^{m,n}$ r=Pivotzeile, s=Pivotspalte
+
+Austausch
+~   *
+    * $b_{rs} ← \frac{1}{a_{rs}}$   
+    * $b_{rj} ← - \frac{a_{rj}}{a_{rs}}$ (Pivotzeile, $j≠s$)
+    * $b_{is} ← \frac{a_{is}}{a_{rs}}$ (Pivotspalte, $i≠r$)
+    * $b_{ij} ← a_{ij} - \frac{a_{is}{a_{rj}}}{a_{rs}}$ ($i≠r,j≠s$)
 
 
-.
+## Normalform
+
+Jedes lin. Programm kann auf die Form
+
+$$\-z\-x = \text{max!}$$
+$$A\-x ≥ 0$$
+
+mit $\-x=[x_1\dots x_d\,1]^t$ kann auf die Form
+
+$$[\-c^t c]\-y = \text{max!}$$
+$$\-y ≥ 0$$
+$$[B\-b]\-y ≥ 0$$
+
+mit $\-y := [y_1\dots y_d\,1]^t$ gebracht werden.
+
+Notation:
+$$
+\begin{array}{cccl}
+                                & x_{0\dots d}          & 1                        &                \\ \cline{2-3}
+\multicolumn{1}{r|}{y_{d+1}=}   &                       & \multicolumn{1}{l|}{}    &                \\
+\multicolumn{1}{r|}{\vdots}     & B                     & \multicolumn{1}{l|}{\-b} & ≥0             \\
+\multicolumn{1}{r|}{y_m=}       &                       & \multicolumn{1}{l|}{}    &                \\ \cline{2-3}
+\multicolumn{1}{r|}{z=}         & \-c^t & \multicolumn{1}{l|}{c}   & =\text{max!} \\ \cline{2-3}
+\end{array}
+$$
+
+$\-b≥0$, sonst Simplex leer.
+
+## Simplexalgorithmus
+
+
+
+Simplex
+~   * Input: $\bar A$ Normalformmatrix eines lin. Progr. $\bar A := \left[\begin{matrix}A&\-a\\\-c^t&c\end{matrix}\right]$
+    * Solange ein $c_s > 0$
+        * Falls alle $a_{is} ≥0$
+            * gib $c←∞$ aus
+            * Ende
+        * sonst
+            * bestimme r so, dass
+            * $$\frac{a_r}{a_{rs}} = \max_{a_{is} < 0} \frac{a_i}{a_{is}}$$
+            * $\bar A ← \text{Austausch}(\bar A, r, s)$
+    * Gib $\bar A$ aus
+
+Die Lösung ist dann, dass alle $y_i$ die oben an der Tabelle stehen = 0 sind.
+
+---
+
+**Util**
+
+* $\-a \cdot \-b = |\-a||\-b| \cos\sphericalangle(\-a,\-b)$
+
+<style>dd ul{list-style-type:none}</style>
+
+$\def\-#1{\mathbf{#1}}$

@@ -5,7 +5,7 @@
 \usepackage{unicode-math}
 \usepackage[ngerman]{babel}
 \usepackage{enumitem}
-\usepackage[top=0.5cm,bottom=0.5cm,left=0.5cm,right=0.5cm]{geometry}
+\usepackage[top=7mm,left=7mm,bottom=7mm,right=7mm]{geometry}
 \usepackage{tabulary,booktabs}
 \usepackage[unicode=true]{hyperref}
 \usepackage{multicol}
@@ -14,16 +14,20 @@
 
 \def\-#1{\mathbf{#1}} % \-x = \mathbf{x}
 \setlist[description]{leftmargin=0pt}
-\setitemize{topsep=0pt,itemsep=0pt,partopsep=0pt,parsep=0pt}
-\renewcommand\labelitemi{}
+\setitemize{topsep=0pt,itemsep=0pt,partopsep=0pt,parsep=0pt,leftmargin=1em}
+\renewcommand\labelitemi{$$\cdot$$}
 \renewcommand\labelitemii{}
 \renewcommand\labelitemiii{}
 \renewcommand\labelitemiv{}
 \setlength{\columnseprule}{1pt}
+\setlength{\headsep}{0pt}
+\RedeclareSectionCommand[afterskip=0.1\baselineskip]{section}
+\RedeclareSectionCommand[afterskip=0.1\baselineskip]{subsection}
+\RedeclareSectionCommand[afterskip=0.1\baselineskip]{subsubsection}
 \AtBeginDocument{\renewcommand{\setminus}{\mathbin{\backslash}}}
 \begin{document}
 \raggedright
-\begin{multicols}{3}
+\begin{multicols}{4}
 $body$
 \end{multicols}
 \end{document}
