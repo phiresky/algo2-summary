@@ -7,25 +7,32 @@ mathfont: Latin Modern Math
 
 **Laufzeiten**
 
-\begin{tabular}{\columnwidth}{L|L|L}
+\begin{tabulary}{\columnwidth}{@{}L@{}|@{}C@{}|@{}L@{}}
 Kapitel & Name & Laufzeit \\\hline
-1.1 Ausweg aus einem Labyrinth & Pledge & \\
-1.2 & Wanze(Bug) & \\
+1.1 & Pledge & \\
+1.2 & Wanze (Bug) & \\
 2.6 Zielsuche & Konvexe Hülle & erw: $O(n\log n)$, max: $O(n^2)$ \\
-6 Flussmaximierung & Ford-Fulkerson & max: $O( |E| *W)$ (k Wert eines max. Flusses) \\
-6 Flussmaximierung & Edmonds-Karp   & max: $O( |E| ^2 * |V| )$ \\
-6 Flussmaximierung & Präfluss-Push  & max: $O( |V| ^2 * |E| )$ \\
-6 Flussmaximierung & An-Die-Spitze  & max: $O( |V| ^3)$ \\
-9 & Welzl & erw: $O(n)$ \\
+6 Flüsse & Ford-Fulkerson & $O( |E| *W)$ (k Wert eines max. Flusses) \\
+6 Flüsse & Edmonds-Karp   & $O( |E| ^2 * |V| )$ \\
+6 Flüsse & Präfluss-Push  & $O( |V| ^2 * |E| )$ \\
+6 Flüsse & An-Die-Spitze  & $O( |V| ^3)$ \\
+7 & Paare & $O(|E| \cdot min\{|L|,|R|\})$ \\
+7 & Vergrößernder Weg & $O(|V|\cdot |E|)$ \\
+8.3 & Min Schnitt & $O(|V|^2 \log |V|)$ richtig mit $P\in \Theta(1/\log |V|)$\\
+9 & Welzl & mittl: $O(n)$ \\
 10 & Simplex & erw: $O(n^2 d)$, max: $\Omega(n^{d/2})$  \\
 10 & Ellipsoid & polyn.; in praxis langsamer als Simplex \\
 10 & Innere Punkte & polyn.; in praxis fast so gut wie Simplex \\
-10.5 & Seidel & max: $O(d^3 d! + dnd!)$ \\
-\end{tabular}
+10.5 & Seidel & $O(d^3 d! + dnd!)$ \\
+\end{tabulary}
 
 **Util**
 
 * $\mathbf a \cdot \mathbf b = |\mathbf a||\mathbf b| \cos\sphericalangle(\mathbf a,\mathbf b)$
+
+---
+
+**I Geometrische Algorithmen**
 
 # Bewegungsplanung bei unvollständiger Information
 
@@ -110,6 +117,7 @@ Strategie existiert mit $\frac{l}{d} \in O(n)$
 
 Baum der kürzesten Wege (BkW) (Blätter sind Polygonecken)
 
+---
 
 # Konvexe Hüllen
 
@@ -184,6 +192,8 @@ Für jede Ecke $\mathbf p$:
     * ...zeug
 4. Dualisiere, verschiebe und gib $\bigcap_{\mathbf u \in U} \mathbf u^*-\mathbf v$ aus
 
+---
+
 # Distanzprobleme
 
 ## Voronoi-Gebiet
@@ -219,14 +229,23 @@ Die Gebiete von $D(P)$ sind disjunkte Dreiecke und zerlegen die konvexe Hülle $
 #. minimale Spannbäume von P liegen auf D(P) (findbar mit Kruskal (greedy))
 #. Rundweg um minimalen Spannbaum ist 2-kompetitiv zu kürzestem Rundweg.
 
-# bla
+---
+
+**II Unterteilungsalgorithmen**
+
+# Stationäre Unterteilung für Kurven
 
 todo
 
+---
 
 # bla
 
 Das Symbol $\gamma(x,y) := \sum \gamma_{ij} x^i y^j$
+
+---
+
+** III Graphen-Algorithmen **
 
 # Flussmaximierung
 
@@ -315,3 +334,96 @@ An die Spitze
         * Leere(x)
         * Falls $h_{alt} < h(x)$, setze x an Spitze von L
         * $x ←$ Nachfolger von x in L
+
+---
+
+# Zuordnungsprobleme
+
+## Paaren in bipartiten Graphen
+
+Paare
+~   * Input: Bipartiter Graph $(L\dot\cup R, E)$
+    * $V ← L\cup R\cup \{q,s\}$
+    * $\hat E ← (q,L) \cup \{(x,y) \subset L \times R \mid \langle x,y \rangle \in E\} \cup (R,s)$
+    * for all $(x,y)\in V^2$
+        * $k(x,y) ← 1$ if $(x,y)\in \hat E$ else $0$
+    * f ← FordFulkerson$((V,\hat E), q, s, k)$
+    * $P ← \{\langle x,y\rangle \in E \mid f(x,y)=1\}$
+
+## Paaren in allgemeinen Graphen
+
+Alternierender Weg ist *maximal*, wenn er nicht Teil eines längeren alternierenden Weges ist.
+
+→ Maximale Paarung kann durch sukzessive Vergrößerung gefunden werden
+
+## Berechnung vergrößender Wege
+
+Vergrößernder Weg
+~   * Input: G und P, Output: Vergrößernder Weg für P
+    * $h(x) ← 0$ wenn x frei, -1 wenn x gebunden
+    * Solange kein vergrößernder Pfad gefunden und gibt unutersuchte Kante $\langle x,y\rangle$ mit $h(x) \in 2ℕ_0$
+    * if $h(y) = -1$
+    * **unwichtig**
+
+## Maximal gewichtete Paarungen
+
+Berechnung möglich in $O(|V|^3)$ bzw. $O(|V|\cdot|E|\log|V|)$
+
+# Minimale Schnitte
+
+Sei
+
+* $\bar G := (V, \bar E), \bar E := \{(x,y)|\langle y,x\rangle = \langle x,y\rangle \in E\}$
+* $k:V^2→ℝ_{\geq 0}, k(x,y):= \text{if }(\langle x, y\rangle \in E)\text{ then }\gamma(\langle x,y\rangle)\text{ else }0$
+* $x,z\in V$ beliebig
+
+Berechne maximalen Fluss
+
+→ $A:=\{y\mid \exists \text{ Pfad } x\leadsto y \text{ in } \bar G_f\}$ und $B:=V\setminus A$ bilden minimalen xz-Schnitt ($x\in A, z\in B$)
+
+Gewicht des Schnitts = Wert des Flusses
+
+kleinster xz-Schnitt in G lässt sich mit Flussmaximierung in $O(|V|^4)$ berechnen
+
+(es existieren Algorithmen in $O(|V|^2 \log |V| + |V||E|)$)
+
+## Zufällige Kontraktion
+
+*ggf. todo*
+
+*Monte-Carlo-Algorithmus* = stochastischer Algorithmus, kann falsche Ergebnisse Liefern
+
+*Las-Vegas-Algorithmus* = stoch. Algo., immer richtig
+
+## Rekursive Kontraktion
+
+---
+
+**IV Optimierungsalgorithmen**
+
+# Kleinste Kugeln
+
+Für jede Punktmenge $P$ ist die kleinste Kugel $K(P)\supset P$ eindeutig.
+
+## Algorithmus von Welzl
+
+$K(P,R)$ ist Kugel die P enthält und R auf der Oberfläche hat
+
+Welzl
+~   * Input: $P,R\subset ℝ^d$, $K(P,R)$ exist., P,R endlich
+    * if $P=\emptyset$ or $|R|=d+1$
+        * $C ← K(R)$
+    * else wähle $\mathbf p\in P$ zufällig
+        * C ← Welzl$(P\setminus \{\mathbf p\}, R)$
+        * if $\mathbf p \notin C$
+            * $C←\text{Welzl}(P\setminus \{\mathbf p\}, R\cup \{\mathbf p\})$
+    * Gib C aus
+
+---
+
+# Lineare Programmierung
+
+LP ist
+
+$$z(\mathbf x) := \mathbf{zx} = \text{max!}$$
+$$A\mathbf x ≥ \geq \mathbf a$$
