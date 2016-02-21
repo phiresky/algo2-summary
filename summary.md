@@ -5,6 +5,8 @@ mathfont: Latin Modern Math
 
 <style>dd ul{list-style-type:none}</style>
 
+$\def\-#1{\mathbf{#1}}$
+
 **Laufzeiten**
 
 \begin{tabulary}{\columnwidth}{@{}L@{}|@{}C@{}|@{}L@{}}
@@ -28,7 +30,7 @@ Kapitel & Name & Laufzeit \\\hline
 
 **Util**
 
-* $\mathbf a \cdot \mathbf b = |\mathbf a||\mathbf b| \cos\sphericalangle(\mathbf a,\mathbf b)$
+* $\-a \cdot \-b = |\-a||\-b| \cos\sphericalangle(\-a,\-b)$
 
 ---
 
@@ -55,16 +57,16 @@ Kapitel & Name & Laufzeit \\\hline
 *Input:*
 
 - $P_1,\dots,P_n$ disj. einf. zsh. endl. poly. Gebiete aus $ℝ^2$
-- $\mathbf{s}, \mathbf{z} \in ℝ^2 \setminus \bigcup_{i=1}^n P_i$
-- R Roboter mit Position $\mathbf{r}$
+- $\-s, \-z \in ℝ^2 \setminus \bigcup_{i=1}^n P_i$
+- R Roboter mit Position $\-r$
 
 *Output:*
 
-- While $\mathbf{r} ≠ \mathbf{z}$
-    - laufe in Richtung $\mathbf{z}$ bis $\mathbf{r}=\mathbf{z}$ oder $\exists i:r\in P_i$
-    - If $\mathbf{r}≠\mathbf{z}$
-        - umlaufe $P_i$ und suche ein $\mathbf{q}\in \arg\min_{\mathbf{x}\in P_i} ||\mathbf{x} - \mathbf{z}||_2$
-        - gehe zu $\mathbf{q}$
+- While $\-r ≠ \-z$
+    - laufe in Richtung $\-z$ bis $\-r=\-z$ oder $\exists i:r\in P_i$
+    - If $\-r≠\-z$
+        - umlaufe $P_i$ und suche ein $\-q\in \arg\min_{\-x\in P_i} ||\-x - \-z||_2$
+        - gehe zu $\-q$
 
 terminiert.
 
@@ -108,7 +110,7 @@ Bestmöglich: Für $f_i = (\frac{m}{m-1})^i$ ist Sternsuche c-kompetitiv mit $c:
 
 ## Suche in Polygonen
 
-Roboter R sucht Weg in polygonalem Gebiet P mit n Ecken von $\mathbf{s}$ nach $\mathbf{z}$.
+Roboter R sucht Weg in polygonalem Gebiet P mit n Ecken von $\-s$ nach $\-z$.
 
 Weglängen: gefunden: $l$, kürzest: $d$
 
@@ -123,7 +125,7 @@ Baum der kürzesten Wege (BkW) (Blätter sind Polygonecken)
 
 ## Dualität
 
-$\mathbf{x} := \begin{pmatrix}1\\ \mathbf{\bar x}\end{pmatrix}, \bar{\mathbf x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
+$\-x := \begin{pmatrix}1\\ \-{\bar x}\end{pmatrix}, \bar{\-x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
 
 $\mathbb u^t \mathbb x := \begin{pmatrix}u_0&u_1&\dots&u_d\end{pmatrix} \cdot\begin{pmatrix}1\\x_1\\\vdots x_d\end{pmatrix}≥  0$
 
@@ -131,13 +133,13 @@ $\mathbb u$ bezeichnet Halbraum und $\mathbb x$ einen seiner Punkte
 
 Nur betrachtet mit $\begin{pmatrix}1&0&\dots&0\end{pmatrix}^t$ d.h. $u_0>0$, normiert $u_0=1$.
 
-$\mathbf u^*$ ist Halbraum zu $\mathbf u$.
+$\-u^*$ ist Halbraum zu $\-u$.
 
-$\mathbf x \in \mathbf u^* \Leftrightarrow \mathbf u \in \mathbf x^*$ (Dualität)
+$\-x \in \-u^* \Leftrightarrow \-u \in \-x^*$ (Dualität)
 
 ## Konvexe Mengen
 
-Verbindungsstrecke $\mathbf x := \mathbf a (1-t) + \mathbf b t,\quad t\in [0,1]$ wird genannt $\mathbf{ab}$.
+Verbindungsstrecke $\-x := \-a (1-t) + \-b t,\quad t\in [0,1]$ wird genannt $\-{ab}$.
 
 $M⊂ A$ ist *konvex* wenn sie zu je zwei ihrer Punkte auch die Verbingungsstrecke enthält.
 
@@ -157,7 +159,7 @@ Jede Facectte liegt auf Rand eines Halbraums (FHR)
 
 P ist konvexe Hülle seiner Eckenmenge
 
-Ist $P$ ein konvexes Polyeder mit den Ecken $\mathbf p_1,\dots,\mathbf p_e$ und den FHRen $\mathbf u_1^*,\dots,\mathbf u_f^*$, hat die Menge $U^*:=\{\mathbf u^*|\mathbf u^* \supset P\} ⊂ A^*$ die Ecken $\mathbf w_1^*,\dots,\mathbf w_f^*$ und die FHRe $\mathbf p_1, \dots,\mathbf p_e$. Dual ausgedrückt heißt das, dass die Menge $U:=\{\mathbf u| \mathbf u^* \supset P\}⊂ A$ die Ecken $\mathbf w_i$ und die FHRe $\mathbf p_i^*$ hat.
+Ist $P$ ein konvexes Polyeder mit den Ecken $\-p_1,\dots,\-p_e$ und den FHRen $\-u_1^*,\dots,\-u_f^*$, hat die Menge $U^*:=\{\-u^*|\-u^* \supset P\} ⊂ A^*$ die Ecken $\-w_1^*,\dots,\-w_f^*$ und die FHRe $\-p_1, \dots,\-p_e$. Dual ausgedrückt heißt das, dass die Menge $U:=\{\-u| \-u^* \supset P\}⊂ A$ die Ecken $\-w_i$ und die FHRe $\-p_i^*$ hat.
 
 Polyeder P und $U⊂ A$ heißen dual zueinander.
 
@@ -169,28 +171,28 @@ Eulers Formel: $v-e+f=2$
 
 ## Datenstruktur für Netze
 
-Für jede Ecke $\mathbf p$:
+Für jede Ecke $\-p$:
 
-* Koordinaten von $\mathbf p$
+* Koordinaten von $\-p$
 * Liste von Zeigerpaaren:
-    * die ersten Zeiger im Gegenuhrzeigersinn auf alle Nachbarn von $\mathbf p$
-    * Sind $\mathbf{p,q,r}$ im GUS geordnete Nachbarn einer Facette und weist der 1. Zeiger eines Paares auf $\mathbf q$, zeigt der 2. Zeiger indirekt auf $\mathbf r$. Er weist auf das Zeigerpaar von q
+    * die ersten Zeiger im Gegenuhrzeigersinn auf alle Nachbarn von $\-p$
+    * Sind $\-{p,q,r}$ im GUS geordnete Nachbarn einer Facette und weist der 1. Zeiger eines Paares auf $\-q$, zeigt der 2. Zeiger indirekt auf $\-r$. Er weist auf das Zeigerpaar von q
 
 ## Konvexe Hülle
 
-*Input:* $P:=(\mathbf p_1,\dots, \mathbf p_n) ⊂ A^3$
+*Input:* $P:=(\-p_1,\dots, \-p_n) ⊂ A^3$
 
 *Output:* $[P]$
 
 1. Verschiebe P sodass Ursprung in P liegt
-2. $U_4 \leftarrow \mathbf p_1^* ∩ \dots ∩ \mathbf p_4^*$
+2. $U_4 \leftarrow \-p_1^* ∩ \dots ∩ \-p_4^*$
 3. For $i=5,\dots,n$
-    * (falls $U_4 ⊂ \mathbf p_i^*$, markiere $\mathbf p_i$ als gelöscht
-    * sonst verknüpfe $\mathbf p_i$ bidirektional mit einem Knoten von $U_4 \notin \mathbf p_i^*$
+    * (falls $U_4 ⊂ \-p_i^*$, markiere $\-p_i$ als gelöscht
+    * sonst verknüpfe $\-p_i$ bidirektional mit einem Knoten von $U_4 \notin \-p_i^*$
 4. For $i=5,\dots,n$
-    * $U_i \leftarrow U_{i-1}∩\mathbf p_i^*$
+    * $U_i \leftarrow U_{i-1}∩\-p_i^*$
     * ...zeug
-4. Dualisiere, verschiebe und gib $\bigcap_{\mathbf u \in U} \mathbf u^*-\mathbf v$ aus
+4. Dualisiere, verschiebe und gib $\bigcap_{\-u \in U} \-u^*-\-v$ aus
 
 ---
 
@@ -198,7 +200,7 @@ Für jede Ecke $\mathbf p$:
 
 ## Voronoi-Gebiet
 
-eines der Punkte $\mathbf p_i$ ist $V_i=\{\mathbf x \in \mathbb R^2|\forall j=1,\dots,n:||\mathbf x - \mathbf p_i||_2 ≤ ||\mathbf x - \mathbf p_j||_2 \}$
+eines der Punkte $\-p_i$ ist $V_i=\{\-x \in \mathbb R^2|\forall j=1,\dots,n:||\-x - \-p_i||_2 ≤ ||\-x - \-p_j||_2 \}$
 
 $V_i$ ist konvex da Schnitt der Halbebenen.
 
@@ -206,7 +208,7 @@ Voroni-Kreis (Punkte des Schnitts von drei Voronoi-Gebieten) ist *leer*.
 
 ## Delaunay-Triangulierung
 
-Delaunay-Triangulierung $D(P)$ einer Punktemenge P hat Kantenmenge $\{\mathbf p_i \mathbf p_j|V_i∩ V_j \text{ ist Kante des Voronoi-Diagramms } V(P)\}$.
+Delaunay-Triangulierung $D(P)$ einer Punktemenge P hat Kantenmenge $\{\-p_i \-p_j|V_i∩ V_j \text{ ist Kante des Voronoi-Diagramms } V(P)\}$.
 
 Ist der zu $V(P)$ duale Graph.
 
@@ -219,13 +221,13 @@ Die Gebiete von $D(P)$ sind disjunkte Dreiecke und zerlegen die konvexe Hülle $
 
     Sei $Z(x,y) = x^2 + y^2$.
 
-    Projiziert man den unteren Teil der konvexen Hülle $[\{\begin{pmatrix}\mathbf p_i\\Z(\mathbf p_i)\end{pmatrix}|i=1,\dots,n\}]$ orthogonal auf die xy-Ebene, erhält man $D(P)$
+    Projiziert man den unteren Teil der konvexen Hülle $[\{\begin{pmatrix}\-p_i\\Z(\-p_i)\end{pmatrix}|i=1,\dots,n\}]$ orthogonal auf die xy-Ebene, erhält man $D(P)$
 
     * D(P) kann mit *Konvexe Hülle* und mittlerem Aufwand $O(n\log n)$ berechnet Werden
 
     * Kanten einer Triangulierung von Q sind konvex (Tal) oder konkav (Berg), ersetze sukzessiv in konkave durch konvexe Kanten
 #. Winkeleigenschaft: Der kleinste Winkel in jedem Viereck ist größer bei DT als bei jeder anderen Triangulierung
-#. jeder Punkt $\mathbf p_i$ ist mit nächstem Nachabarn durch Kante in $D(P)$ verbunden → nächste Nachbarn aller $p_i$ können in $O(n)$ bestimmt werden
+#. jeder Punkt $\-p_i$ ist mit nächstem Nachabarn durch Kante in $D(P)$ verbunden → nächste Nachbarn aller $p_i$ können in $O(n)$ bestimmt werden
 #. minimale Spannbäume von P liegen auf D(P) (findbar mit Kruskal (greedy))
 #. Rundweg um minimalen Spannbaum ist 2-kompetitiv zu kürzestem Rundweg.
 
@@ -413,10 +415,10 @@ Welzl
 ~   * Input: $P,R⊂ ℝ^d$, $K(P,R)$ exist., P,R endlich
     * if $P=\emptyset$ or $|R|=d+1$
         * $C ← K(R)$
-    * else wähle $\mathbf p\in P$ zufällig
-        * C ← Welzl$(P\setminus \{\mathbf p\}, R)$
-        * if $\mathbf p \notin C$
-            * $C←\text{Welzl}(P\setminus \{\mathbf p\}, R∪ \{\mathbf p\})$
+    * else wähle $\-p\in P$ zufällig
+        * C ← Welzl$(P\setminus \{\-p\}, R)$
+        * if $\-p \notin C$
+            * $C←\text{Welzl}(P\setminus \{\-p\}, R∪ \{\-p\})$
     * Gib C aus
 
 ---
@@ -425,5 +427,26 @@ Welzl
 
 LP ist
 
-$$z(\mathbf x) := \mathbf{zx} = \text{max!}$$
-$$A\mathbf x ≥ \mathbf a$$
+$$z(\-x) := \-{zx} = \text{max!}$$
+$$A\-x ≥ \-a,$$
+
+wobei $\-z,\-x \in ℝ^d, A\in ℝ^{n×d}, \-a \in ℝ^n$, und $\-{zx}:=\-z^t\-x$
+
+d ist die Dimension des linearen Programms.
+
+Die Ungleichungen $A\-x ≥ \-a$ repräsentieren den Schnitt S von n Halbräumen, der *Simplex* genannt wird.
+
+Die Punkte $\-x \in S$ heißen *zulässig*.
+
+Die Ecken von S liegen je auf d Hyperebenen (d Gleichungen des Gleichungssystems).
+
+$\-x$
+.
+
+.
+
+
+.
+
+
+.
