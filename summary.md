@@ -89,9 +89,9 @@ Baum der kürzesten Wege (BkW) (Blätter sind Polygonecken)
 
 ## Dualität
 
-$\-x := \begin{pmatrix}1\\ \-{\bar x}\end{pmatrix}, \bar{\-x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
+$$\-x := \left[\begin{matrix}1\\ \bar{\-x}\end{matrix}\right], \bar{\-x} \in \mathbb R^d$$ bilden *affinen Raum* $A^d$.
 
-$\mathbb u^t \mathbb x := \begin{pmatrix}u_0&u_1&\dots&u_d\end{pmatrix} \cdot\begin{pmatrix}1\\x_1\\\vdots x_d\end{pmatrix}≥  0$
+$$\mathbb u^t \mathbb x := \left[\begin{smallmatrix}u_0&u_1&\dots&u_d\end{smallmatrix}\right] \cdot\left[\begin{matrix}1\\x_1\\\vdots x_d\end{matrix}\right]≥  0$$
 
 $\mathbb u$ bezeichnet Halbraum und $\mathbb x$ einen seiner Punkte
 

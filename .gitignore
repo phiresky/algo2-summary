@@ -1,0 +1,6 @@
+*.aux
+*.log
+*.out
+summary.tex
+pdfs
+newpdfs
