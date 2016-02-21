@@ -91,9 +91,9 @@ Baum der kürzesten Wege (BkW) (Blätter sind Polygonecken)
 
 $$\-x := \left[\begin{matrix}1\\ \bar{\-x}\end{matrix}\right], \bar{\-x} \in \mathbb R^d$$ bilden *affinen Raum* $A^d$.
 
-$$\mathbb u^t \mathbb x := \left[\begin{smallmatrix}u_0&u_1&\dots&u_d\end{smallmatrix}\right] \cdot\left[\begin{matrix}1\\x_1\\\vdots x_d\end{matrix}\right]≥  0$$
+$$\-u^t \-x := \left[\begin{smallmatrix}u_0&u_1&\dots&u_d\end{smallmatrix}\right] \cdot\left[\begin{matrix}1\\x_1\\\vdots\\x_d\end{matrix}\right]≥  0$$
 
-$\mathbb u$ bezeichnet Halbraum und $\mathbb x$ einen seiner Punkte
+$\-u$ bezeichnet Halbraum und $\-x$ einen seiner Punkte
 
 Nur betrachtet mit $\begin{pmatrix}1&0&\dots&0\end{pmatrix}^t$ d.h. $u_0>0$, normiert $u_0=1$.
 
@@ -416,6 +416,8 @@ maximiere Summe der ausgehenden Flüsse aus der Quelle.
 Gleichungen zur Flusserhaltung (je eingehende Kanten - ausgehende Kanten = 0 ($≥$ und $≤$))
 
 Gleichungen zur Kapazitätsbeschränkung (Fluss $≥$ 0 und (Kapazität - Fluss) $≥$ 0)
+
+$f(a,b) = - f(b,a)$
 
 ## Kürzester Weg als LP
 
