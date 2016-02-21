@@ -1,24 +1,27 @@
 ---
+#header-includes: \usepackage{unicode-math}
+mathfont: Latin Modern Math
 ---
 
 <style>dd ul{list-style-type:none}</style>
 
 **Laufzeiten**
 
-Kapitel|Name|Laufzeit|
--------|----|--------|
-1.1 Ausweg aus einem Labyrinth|Pledge|||
-1.2|Wanze(Bug)|||
-2.6 Zielsuche|Konvexe Hülle|erw: $O(n\log n)$, max: $O(n^2)$|
-6 Flussmaximierung|Ford-Fulkerson|max: $O(|E|*W)$ (k Wert eines max. Flusses)|
-6 Flussmaximierung|Edmonds-Karp  |max: $O(|E|^2 * |V|)$|
-6 Flussmaximierung|Präfluss-Push |max: $O(|V|^2 * |E|)$|
-6 Flussmaximierung|An-Die-Spitze |max: $O(|V|^3)$|
-9|Welzl|erw: $O(n)$|
-10|Simplex|erw: $O(n^2 d)$, max: $\Omega(n^{d/2})$ |
-10|Ellipsoid|polyn.; in praxis langsamer als Simplex|
-10|Innere Punkte|polyn.; in praxis fast so gut wie Simplex|
-10.5|Seidel|max: $O(d^3 d! + dnd!)$|
+\begin{tabular}{\columnwidth}{L|L|L}
+Kapitel & Name & Laufzeit \\\hline
+1.1 Ausweg aus einem Labyrinth & Pledge & \\
+1.2 & Wanze(Bug) & \\
+2.6 Zielsuche & Konvexe Hülle & erw: $O(n\log n)$, max: $O(n^2)$ \\
+6 Flussmaximierung & Ford-Fulkerson & max: $O( |E| *W)$ (k Wert eines max. Flusses) \\
+6 Flussmaximierung & Edmonds-Karp   & max: $O( |E| ^2 * |V| )$ \\
+6 Flussmaximierung & Präfluss-Push  & max: $O( |V| ^2 * |E| )$ \\
+6 Flussmaximierung & An-Die-Spitze  & max: $O( |V| ^3)$ \\
+9 & Welzl & erw: $O(n)$ \\
+10 & Simplex & erw: $O(n^2 d)$, max: $\Omega(n^{d/2})$  \\
+10 & Ellipsoid & polyn.; in praxis langsamer als Simplex \\
+10 & Innere Punkte & polyn.; in praxis fast so gut wie Simplex \\
+10.5 & Seidel & max: $O(d^3 d! + dnd!)$ \\
+\end{tabular}
 
 **Util**
 
@@ -67,7 +70,8 @@ Maximale Füllmenge $h$, verteile Zahlenmenge auf möglichst wenige Behälter.
 NP-hart.
 
 First fit
-~   * $B_1,\dots,B_m \leftarrow \emptyset$
+~   *
+    * $B_1,\dots,B_m \leftarrow \emptyset$
     * For $i=1,\dots,m$
         * Bestimme kleinstes j mit $b_i+\sum_{b\in B_j} b \leq h$
         * Füge $b_i$ zu $B_j$ hinzu
@@ -77,7 +81,8 @@ First fit
 Falls $k_A \leq a + c k_{min}$ für alle Eingaben, heißt A c-kompetitiv.
 
 Türsuche
-~   * Wähle Erkundungstiefen $f_i > 0$ für $i\in \mathbb{N}$
+~   *
+    * Wähle Erkundungstiefen $f_i > 0$ für $i\in \mathbb{N}$
     * For $i:=1$ to $\infty$ (stoppe, wenn Tür gefunden)
         * gehe $f_i$ Meter die Wand entlang und zurück
         * wechsle Laufrichtung
@@ -110,13 +115,13 @@ Baum der kürzesten Wege (BkW) (Blätter sind Polygonecken)
 
 ## Dualität
 
-$\mathbf{x} := \pmatrix{1\\ \mathbf{\bar x}}, \bar{\mathbf x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
+$\mathbf{x} := \begin{pmatrix}1\\ \mathbf{\bar x}\end{pmatrix}, \bar{\mathbf x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
 
-$\mathbb u^t \mathbb x := \pmatrix{u_0&u_1&\dots&u_d} \pmatrix{1\\x_1\\\vdots x_d}\geq  0$
+$\mathbb u^t \mathbb x := \begin{pmatrix}u_0&u_1&\dots&u_d\end{pmatrix} \cdot\begin{pmatrix}1\\x_1\\\vdots x_d\end{pmatrix}\geq  0$
 
 $\mathbb u$ bezeichnet Halbraum und $\mathbb x$ einen seiner Punkte
 
-Nur betrachtet mit $\pmatrix{1&0&\dots&0}^t$ d.h. $u_0>0$, normiert $u_0=1$.
+Nur betrachtet mit $\begin{pmatrix}1&0&\dots&0\end{pmatrix}^t$ d.h. $u_0>0$, normiert $u_0=1$.
 
 $\mathbf u^*$ ist Halbraum zu $\mathbf u$.
 
@@ -204,7 +209,7 @@ Die Gebiete von $D(P)$ sind disjunkte Dreiecke und zerlegen die konvexe Hülle $
 
     Sei $Z(x,y) = x^2 + y^2$.
 
-    Projiziert man den unteren Teil der konvexen Hülle $[\{\pmatrix{\mathbf p_i\\Z(\mathbf p_i)}|i=1,\dots,n\}]$ orthogonal auf die xy-Ebene, erhält man $D(P)$
+    Projiziert man den unteren Teil der konvexen Hülle $[\{\begin{pmatrix}\mathbf p_i\\Z(\mathbf p_i)\end{pmatrix}|i=1,\dots,n\}]$ orthogonal auf die xy-Ebene, erhält man $D(P)$
 
     * D(P) kann mit *Konvexe Hülle* und mittlerem Aufwand $O(n\log n)$ berechnet Werden
 
@@ -221,12 +226,13 @@ todo
 
 # bla
 
-todo
+Das Symbol $\gamma(x,y) := \sum \gamma_{ij} x^i y^j$
 
 # Flussmaximierung
 
 Flussnetzwerk $F:= (G=(V,E), q \in V, s\in V, k:V^2\to \mathbb R_{\geq0})$
 
+Graph zusammenhängend (für jeden Knoten ex. Weg von q zu s), $|E|\geq|V|-1$
 
 Fluss $f:V^2\to\mathbb R$ mit
 
@@ -252,27 +258,31 @@ solange es einen Weg $q\leadsto s$ in $G_f$ gibt, erhöhe f maximal über diesen
 
 
 Push(x,y)
-~   * $d\leftarrow \min\{ü(x), k_f(x,y)\}$
+~   *
+    * $d\leftarrow \min\{\text ü(x), k_f(x,y)\}$
     * $f(x,y) \mathrel+= d$
-    * $ü(x) \mathrel-= d$
-    * $ü(y) \mathrel+= d$
+    * ü$(x) \mathrel-= d$
+    * ü$(y) \mathrel+= d$
 
 Pushbar(x,y)
-~   * $x\in V\setminus \{q,s\}$
+~   *
+    * $x\in V\setminus \{q,s\}$
     * und $h(x)-h(y)=1$
-    * und $ü(x)>0$
+    * und ü$(x)>0$
     * und $(x,y)\in E_f$
 
 Lift(x)
 ~   * $h(x) \leftarrow 1+\min_{(x,y)\in E_f} h(y)$
 
 Liftbar(x)
-~   * $x\in V\setminus \{q,s\}$
-    * $ü(x) > 0$
+~   *
+    * $x\in V\setminus \{q,s\}$
+    * ü$(x) > 0$
     * $h(x) \leq \min_{(x,y)\in E_f} h(x)$
 
 Präfluss-Push:
-~   * for all $x,y\in V$
+~   *
+    * for all $x,y\in V$
     * $h(x) ← \text{if }x=q\text{ then } |V| \text{ else } 0$
     * $f(x,y) ← \text{if }x=q\text{ then } k(x,y) \text{ else } 0$
     * solange es eine erlaubte Push oder Lift-Operation gibt, führe beliebige aus
@@ -280,7 +290,8 @@ Präfluss-Push:
 ### An-Die-Spitze
 
 Leere(x)
-~   * while $ü(x)>0$
+~   *
+    * while ü$(x)>0$
         * if $i_x \leq Grad(x)$
             * if pushbar$(x,n_x(i_x))$ : push$(x,n_x(i_x))$
             * sonst: $i_x\mathrel+=1$
