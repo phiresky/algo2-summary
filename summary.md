@@ -279,7 +279,7 @@ Rekonstruktion
             * $c_{2i+1}^{k+1} = c_i^k - d_i^k
 
 # Wavelets 2D
-$s(x, y) = \sum\limits{i,j=0}^{2^m-1}{c_{ij}^m * B_i^m(x)* B_j^m(y)}$
+$s(x, y) = \sum\limits_{i,j=0}^{2^m-1}{c_{ij}^m * B_i^m(x)* B_j^m(y)}$
 
 Zerlegung^2 (Spalte erster Index!)            
 ~   *
