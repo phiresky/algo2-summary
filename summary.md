@@ -1,10 +1,11 @@
-$\def\-#1{\mathbf{#1}}$
 
 # Bewegungsplanung bei unvollständiger Information
 
 ## Ausweg aus einem Labyrinth
 
 ### Pledge-Strategie
+
+$\def\-#1{\mathbf{#1}}$
 
 *Input:* polygonales Labyrinth L, Roboter R, Drehwinkel $\varphi \in \mathbb{R}$
 
@@ -193,7 +194,7 @@ Kanten einer Triangulierung von Q sind konvex (Tal) oder konkav (Berg), ersetze 
 
 **Winkeleigenschaft**: Der kleinste Winkel in jedem Viereck ist größer bei DT als bei jeder anderen Triangulierung
 
-**jeder** Punkt $\-p_i$ ist mit nächstem Nachabarn durch Kante in $D(P)$ verbunden → nächste Nachbarn aller $p_i$ können in $O(n)$ bestimmt werden
+**jeder** Punkt $\-p_i$ ist mit nächstem Nachbarn durch Kante in $D(P)$ verbunden → nächste Nachbarn aller $p_i$ können in $O(n)$ bestimmt werden
 
 **minimale Spannbäume** von P liegen auf D(P) (findbar mit Kruskal (greedy))
 
