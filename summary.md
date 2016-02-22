@@ -562,9 +562,7 @@ $\-b≥0$, sonst Simplex leer.
 Simplex
 ~   * Input: $\bar A$ Normalformmatrix eines lin. Progr. $\bar A := \left[\begin{matrix}A&\-a\\\-c^t&c\end{matrix}\right]$
     * Solange ein $c_s > 0$
-        * Falls alle $a_{is} ≥0$
-            * gib $c←∞$ aus
-            * Ende
+        * Falls alle $a_{is} ≥0$: gib $c←∞$ aus; Ende
         * sonst
             * bestimme r so, dass
             * $\frac{a_r}{a_{rs}} = \max_{a_{is} < 0} \frac{a_i}{a_{is}}$
@@ -573,6 +571,7 @@ Simplex
 
 Die Lösung ist dann, dass alle $y_i$ die oben an der Tabelle stehen = 0 sind.
 
+(total) *unimodular* = quadratisch, $det A\in\{-1,0,1\}$ (+alle quad. Untermatrizen)
 
 **Util**
 
