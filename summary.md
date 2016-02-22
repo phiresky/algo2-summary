@@ -1,7 +1,5 @@
 $\def\-#1{\mathbf{#1}}$
 
-**I Geometrische Algorithmen**
-
 # Bewegungsplanung bei unvollständiger Information
 
 ## Ausweg aus einem Labyrinth
@@ -91,9 +89,9 @@ Baum der kürzesten Wege (BkW) (Blätter sind Polygonecken)
 
 ## Dualität
 
-$\-x := \left[\begin{matrix}1\\ \bar{\-x}\end{matrix}\right], \bar{\-x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
+$\-x := \left[\begin{smallmatrix}1& \bar{\-x}\end{smallmatrix}\right], \bar{\-x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
 
-$\-u^t \-x := \left[\begin{smallmatrix}u_0&u_1&\dots&u_d\end{smallmatrix}\right] \cdot\left[\begin{matrix}1\\x_1\\\vdots\\x_d\end{matrix}\right]≥  0$
+$\-u^t \-x := \left[\begin{smallmatrix}u_0&u_1&\dots&u_d\end{smallmatrix}\right] \cdot\left[\begin{smallmatrix}1&x_1&\vdots&x_d\end{smallmatrix}\right]≥  0$
 
 $\-u$ bezeichnet Halbraumvektor und $\-x$ einen seiner Punkte
 
@@ -181,22 +179,26 @@ Die Gebiete von $D(P)$ sind disjunkte Dreiecke und zerlegen die konvexe Hülle $
 
 ### Eigenschaften
 
-#. Umkreise der Dreiecke sind leer
-#. *Paraboloid-Eigenschaft:*
+Umkreise der Dreiecke sind leer
 
-    Sei $Z(x,y) = x^2 + y^2$.
+**Paraboloid-Eigenschaft:**
 
-    Projiziert man den unteren Teil der konvexen Hülle $[\{\begin{pmatrix}\-p_i\\Z(\-p_i)\end{pmatrix}|i=1,\dots,n\}]$ orthogonal auf die xy-Ebene, erhält man $D(P)$
+Sei $Z(x,y) = x^2 + y^2$.
 
-    * D(P) kann mit *Konvexe Hülle* und mittlerem Aufwand $O(n\log n)$ berechnet Werden
+Projiziert man den unteren Teil der konvexen Hülle $[\{\begin{pmatrix}\-p_i\\Z(\-p_i)\end{pmatrix}|i=1,\dots,n\}]$ orthogonal auf die xy-Ebene, erhält man $D(P)$
 
-    * Kanten einer Triangulierung von Q sind konvex (Tal) oder konkav (Berg), ersetze sukzessiv in konkave durch konvexe Kanten
-#. Winkeleigenschaft: Der kleinste Winkel in jedem Viereck ist größer bei DT als bei jeder anderen Triangulierung
-#. jeder Punkt $\-p_i$ ist mit nächstem Nachabarn durch Kante in $D(P)$ verbunden → nächste Nachbarn aller $p_i$ können in $O(n)$ bestimmt werden
-#. minimale Spannbäume von P liegen auf D(P) (findbar mit Kruskal (greedy))
-#. Rundweg um minimalen Spannbaum ist 2-kompetitiv zu kürzestem Rundweg.
+D(P) kann mit *Konvexe Hülle* und mittlerem Aufwand $O(n\log n)$ berechnet Werden
 
-**II Unterteilungsalgorithmen**
+Kanten einer Triangulierung von Q sind konvex (Tal) oder konkav (Berg), ersetze sukzessiv in konkave durch konvexe Kanten
+
+**Winkeleigenschaft**: Der kleinste Winkel in jedem Viereck ist größer bei DT als bei jeder anderen Triangulierung
+
+**jeder** Punkt $\-p_i$ ist mit nächstem Nachabarn durch Kante in $D(P)$ verbunden → nächste Nachbarn aller $p_i$ können in $O(n)$ bestimmt werden
+
+**minimale Spannbäume** von P liegen auf D(P) (findbar mit Kruskal (greedy))
+
+**Rundweg** um minimalen Spannbaum ist 2-kompetitiv zu kürzestem Rundweg.
+
 
 # Stationäre Unterteilung für Kurven
 
@@ -209,7 +211,6 @@ $N^n(u):= \int_{u-1}^u N^{n-1}(t) dt$
 $N^n(u) \begin{cases}=0,&u\notin [0,n+1)\\>0,& u\in (0, n+1)\end{cases}$
 
 
-
 ## Symbole
 
 *Dopplungsmatrix*: $α_0(z) = 1+z$
@@ -220,11 +221,17 @@ $N^n(u) \begin{cases}=0,&u\notin [0,n+1)\\>0,& u\in (0, n+1)\end{cases}$
 
 *Chaikin*: $α_1(z) = ½ (1+z)^2$
 
+*Unterteilungsgleichung*: $\alpha(z) * c(z^2) = b(z)$
+
 Differenzenschema zu einem $α(z)$: $β(z)=\frac{α(z)}{1+z}$ (Polynomdivision). Existiert nur wenn $α(z)$ den Faktor (1+z) hat, bzw. wenn $α(-1) = \sum_{j\in \mathbb{Z}} α_{2j} - \sum_{j\in \mathbb{Z}} α_{2j+1} = 0$
 
 Für konvergentes $α(z)$ gilt $\sum_{j\in \mathbb{Z}} α_{2j} = \sum_{j\in \mathbb{Z}} α_{2j+1} = 1$
 
+*Ableitungsschema*: $2 * \alpha(z) / (1+z)$
+
 Existiert das r-te Ableitungsschema von α und ist konvergent, konvergieren alle durch α erzeugten Folgen $(c^m)_{m\in ℕ}$ gegen r-mal stetig differenzierbare Funktionen.
+
+Unterteilungsschema konvergent $\leftrightarrow$ Differenzenschema Nullschema
 
 **konvergent**: für jede Maske ist die Summe der Gewichte 1
 
@@ -233,9 +240,11 @@ Existiert das r-te Ableitungsschema von α und ist konvergent, konvergieren alle
 
 Matrix $C=\-c_{\mathbb{Z}^2}$ hat das Symbol
 
-$$\-c(\-x) := \-c(x,y)$$
-$$:= \sum_{i\in\mathbb{Z}}\sum_{j \in \mathbb{Z}} \-c_{ij} x^i y^j$$
-$$=: \sum_{\-i \in \mathbb{Z}^2} \-c_{\-i} \-x^{\-i}$$
+$\-c(\-x) := \-c(x,y)$
+
+$:= \sum_{i\in\mathbb{Z}}\sum_{j \in \mathbb{Z}} \-c_{ij} x^i y^j$
+
+$=: \sum_{\-i \in \mathbb{Z}^2} \-c_{\-i} \-x^{\-i}$
 
 Seien U,V Unterteilungsalgorithmen mit Symbol $α(x), β(x)$
 
@@ -247,8 +256,44 @@ $\-x^2 = (x^2,y^2)$!
 
 *Verfeinerungsschema $(U_1,U_1)$*: $\gamma(x,y) := ¼ [1\,x\,x^2]\left[\begin{matrix}1\\2\\1\end{matrix}\right]\cdot[1\,2\,1]\left[\begin{matrix}1\\y\\y^2\end{matrix}\right]$
 
+# Wavelets 1D
+geg: $s(u) = \sum\limits_{i=0}^{2^m-1}{c_i^m*N^0_i(2^m*u)}$
+oder $s = \sum\limits_{i=0}^{2^{m-1}-1}{(c_i^{m-1}B^{m-1}_i + d_i^{m-1}W_i^{m-1})}$
 
-**III Graphen-Algorithmen**
+Zerlegung
+~   *
+    * For k = m-1, ..., 0
+        * For i = 0, ..., $2^k-1$
+            * $c_i^k = 0.5 * (c_{2i}^{k+1} + c_{2i+1}^{k+1})$
+            * $d_i^k = 0.5 * (c_{2i}^{k+1} - c_{2i+1}^{k+1})
+
+Ausgabe: $s = c^0_0*B^0_0 + \sum\limits_{i=0}^{2^0-1}{d_i^0 * W_i^0} + ... + \sum\limits_{i=0}^{2^{m-1}-1}{d_i^{m-1} * W^{m-1}_i}$
+
+$B_i^k = N^0_i(2^k*u)$
+
+Rekonstruktion
+~   *
+    * For k = 0...m-1  
+        * For i = 0...$2^k-1$
+            * $c_{2i}^{k+1} = c_i^k + d_i^k$
+            * $c_{2i+1}^{k+1} = c_i^k - d_i^k
+
+# Wavelets 2D
+$s(x, y) = \sum\limits{i,j=0}^{2^m-1}{c_{ij}^m * B_i^m(x)* B_j^m(y)}$
+
+Zerlegung^2 (Spalte erster Index!)            
+~   *
+    * Für k = m-1...0
+        * Für i,j = 0...$2^k-1$
+            * $c_{ij}^k = 0.25 * (c_{2i,2j}^{k+1} + c_{2i+1,2j}^{k+1} + c_{2i,2j+1}^{k+1} + c_{2i+1,2j+1}^{k+1})$
+            * $d_{ij}^k = 0.25 * (+ - + -)$
+            * $e_{ij}^k = 0.25 * (+ + - -)$
+            * $f_{ij}^k = 0.25 * (+ - + -)$
+
+Beachte auch: in der nächsten Matrix sind die $c_{ij}$ nur in den 4er Feldern jeweils links oben!
+
+Rekonstruktion^2 analog zu Zerlegung^2, jedoch mit Faktor 4 statt 0.25 und c, d, e, f, ergebin jeweils (2i,2j), (2i+1,2j) usw.
+
 
 # Flussmaximierung
 
@@ -258,9 +303,11 @@ Graph zusammenhängend (für jeden Knoten ex. Weg von q zu s), $|E|≥|V|-1$
 
 Fluss $f:V^2\to\mathbb R$ mit
 
-(1) $f≤ k$
-(2) $\forall x,y\in V: f(x,y)=-f(y,x)$
-(3) $\forall x\in V\setminus\{q,s\}:\sum f(x,V):=\sum_{y\in V}f(x,y)=0$
+$f≤ k$
+
+$\forall x,y\in V: f(x,y)=-f(y,x)$
+
+$\forall x\in V\setminus\{q,s\}:\sum f(x,V):=\sum_{y\in V}f(x,y)=0$
 
 Residualgraph $G_f := (V, E_f:=\{e\in V^2 | f(e)<k(e)\})$
 
@@ -278,36 +325,28 @@ solange es einen Weg $q\leadsto s$ in $G_f$ gibt, erhöhe f maximal über diesen
 
 ### Präfluss-Pusch
 
+**Präfluss-Eigenschaft**
+Fluss mit Rein-Raus $>= 0$
 
-Push(x,y)
-~   *
-    * $d\leftarrow \min\{\text ü(x), k_f(x,y)\}$
-    * $f(x,y) \mathrel+= d$
-    * ü$(x) \mathrel-= d$
-    * ü$(y) \mathrel+= d$
+**Höhenfunktion**
+$h(q) = |V|$, h(s) = 0, \forall (x, y) in E_f: h(x) - h(y) <=1$
 
-Pushbar(x,y)
-~   *
-    * $x\in V\setminus \{q,s\}$
-    * und $h(x)-h(y)=1$
-    * und ü$(x)>0$
-    * und $(x,y)\in E_f$
+**Push(x,y)**
+schiebe mögliches Maximum (ü und k beachten!) über Kante
 
-Lift(x)
-~   * $h(x) \leftarrow 1+\min_{(x,y)\in E_f} h(y)$
+**Pushbar(x,y)**
+$x\in V\setminus \{q,s\}$ und $h(x)-h(y)=1$ und ü$(x)>0$ und $(x,y)\in E_f$
 
-Liftbar(x)
-~   *
-    * $x\in V\setminus \{q,s\}$
-    * ü$(x) > 0$
-    * $h(x) ≤ \min_{(x,y)\in E_f} h(x)$
+**Lift(x)**
+$h(x) \leftarrow 1+\min_{(x,y)\in E_f} h(y)$
+
+**Liftbar(x)**
+$x\in V\setminus \{q,s\}$ und ü$(x) > 0$ und $h(x) ≤ \min_{(x,y)\in E_f} h(x)$
 
 Präfluss-Push:
 ~   *
-    * for all $x,y\in V$
     * $h(x) ← \text{if }x=q\text{ then } |V| \text{ else } 0$
     * $f(x,y) ← \text{if }x=q\text{ then } k(x,y) \text{ else } 0$
-    * solange es eine erlaubte Push oder Lift-Operation gibt, führe beliebige aus
 
 ### An-Die-Spitze
 
@@ -318,8 +357,7 @@ Leere(x)
             * if pushbar$(x,n_x(i_x))$ : push$(x,n_x(i_x))$
             * sonst: $i_x\mathrel+=1$
         * else
-            * Lift(x)
-            * $i_x ← 1$
+            * Lift(x), $i_x ← 1$
 
 $L$ ist Liste aller $x\in V\setminus \{q,s\}$ mit x vor y falls pushbar(x,y)
 
@@ -333,24 +371,12 @@ An die Spitze
     * Generiere L
     * $x ← \text{Kopf}(L)$
     * while $x ≠ \text{NIL}$
-        * $h_{alt} ← h(x)$
         * Leere(x)
         * Falls $h_{alt} < h(x)$, setze x an Spitze von L
         * $x ←$ Nachfolger von x in L
 
 
 # Zuordnungsprobleme
-
-## Paaren in bipartiten Graphen
-
-Paare
-~   * Input: Bipartiter Graph $(L\dot∪ R, E)$
-    * $V ← L∪ R∪ \{q,s\}$
-    * $\hat E ← (q,L) ∪ \{(x,y) ⊂ L \times R \mid \langle x,y \rangle \in E\} ∪ (R,s)$
-    * for all $(x,y)\in V^2$
-        * $k(x,y) ← 1$ if $(x,y)\in \hat E$ else $0$
-    * f ← FordFulkerson$((V,\hat E), q, s, k)$
-    * $P ← \{\langle x,y\rangle \in E \mid f(x,y)=1\}$
 
 ## Paaren in allgemeinen Graphen
 
@@ -425,10 +451,7 @@ Welzl
 
 ## Lineare Programme
 
-LP ist
-
-$$z(\-x) := \-{zx} = \text{max!}$$
-$$A\-x ≥ \-a,$$
+LP ist $z(\-x) := \-{zx} = \text{max!}$, $A\-x ≥ \-a,$
 
 wobei $\-z,\-x \in ℝ^d, A\in ℝ^{n×d}, \-a \in ℝ^n$, und $\-{zx}:=\-z^t\-x$
 
@@ -457,17 +480,30 @@ $f(a,b) = - f(b,a)$
 
 Suche Weg $1\leadsto 2$
 
-$$\sum_{(i,j)\in E} x_{ij}\gamma_{ij} = \text{min!}$$
-$$x_{ij} ≥ 0, (i,j)\in E$$
-$$\sum_j x_{ij} - \sum_j x_{ji} = \begin{cases}1&i=1\\-1&i=2\\0&sonst\end{cases}$$
+$\sum_{(i,j)\in E} x_{ij}\gamma_{ij} = \text{min!}$
+
+$x_{ij} ≥ 0, (i,j)\in E$
+
+$\sum_j x_{ij} - \sum_j x_{ji} = \begin{cases}1&i=1\\-1&i=2\\0&sonst\end{cases}$
 
 (Ausgehende Kanten = Eingehende Kanten außer für $i≠1,2$)
 
 negative Kreise $⇒$ keine endliche Lösung. Erzwingbar durch $x_{ij} ≤ 1, (i,j)\in E$ (?)
 
-## *ggf. todo*
+## Maximusnorm
+geg: $r = A * a - c$ mit A Matrix
+wobei c konstanter Vektor und a Vektor aus Variablen.
+Dann LP mit $y_0 = 1 / r, y_1 = a_1 / r, y_2 = a_2 / r, ...$
 
-## Simplexalgorithmus
+$y_0 = max!$
+
+$\begin{array}{cc}
+-c & A \\
+c & -A
+\end{array}
+<= [1, 1, .... , 1]$
+
+# Simplexalgorithmus
 
 $\-y(\-x) = A\-x$
 $$\left[\begin{matrix}y_1\\\vdots\\y_m\end{matrix}\right] = \left[\begin{matrix}a_{11}&\dots&a_{1n}\\\vdots&&\vdots\\a_{m1}&\dots&a_{mn}\end{matrix}\right]\left[\begin{matrix}x_1\\\vdots\\x_n\end{matrix}\right]$$
@@ -477,16 +513,6 @@ wobei $n=d+1$ und $x_n=1$
 Hyperebenen $H_i:y_i(\-x)=0$
 
 Gegeben: $A=[a_{ij}]_{i,j=1,1}^{m,n}$
-
-$$
-\begin{array}{c|ccccc}
-&&x_j&&x_s&\\ \hline
-&&\vdots&&\vdots&\\
-y_i&\dots&a_{ij}&\dots&a_{is}&\dots\\
-&&\vdots&&\vdots&\\
-y_r&\dots&a_{rj}&\dots&a_{rs}&\dots\\
-&&\vdots&&\vdots&\\
-\end{array}$$
 
 Gesucht: $B=[b_{ij}]_{i,j=1,1}^{m,n}$ r=Pivotzeile, s=Pivotspalte
 
@@ -502,14 +528,17 @@ Austausch
 
 Jedes lin. Programm kann auf die Form
 
-$$\-z\-x = \text{max!}$$
-$$A\-x ≥ 0$$
+$\-z\-x = \text{max!}$
+
+$A\-x ≥ 0$
 
 mit $\-x=[x_1\dots x_d\,1]^t$ kann auf die Form
 
-$$[\-c^t c]\-y = \text{max!}$$
-$$\-y ≥ 0$$
-$$[B\-b]\-y ≥ 0$$
+$[\-c^t c]\-y = \text{max!}$
+
+$\-y ≥ 0$
+
+$[B\-b]\-y ≥ 0$
 
 mit $\-y := [y_1\dots y_d\,1]^t$ gebracht werden.
 
@@ -538,7 +567,7 @@ Simplex
             * Ende
         * sonst
             * bestimme r so, dass
-            * $$\frac{a_r}{a_{rs}} = \max_{a_{is} < 0} \frac{a_i}{a_{is}}$$
+            * $\frac{a_r}{a_{rs}} = \max_{a_{is} < 0} \frac{a_i}{a_{is}}$
             * $\bar A ← \text{Austausch}(\bar A, r, s)$
     * Gib $\bar A$ aus
 
