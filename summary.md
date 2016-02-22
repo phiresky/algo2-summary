@@ -341,7 +341,7 @@ $x\in V\setminus \{q,s\}$ und $h(x)-h(y)=1$ und ü$(x)>0$ und $(x,y)\in E_f$
 $h(x) \leftarrow 1+\min_{(x,y)\in E_f} h(y)$
 
 **Liftbar(x)**
-$x\in V\setminus \{q,s\}$ und ü$(x) > 0$ und $h(x) ≤ \min_{(x,y)\in E_f} h(x)$
+$x\in V\setminus \{q,s\}$ und ü$(x) > 0$ und $h(x) ≤ \min_{(x,y)\in E_f} h(y)$
 
 Präfluss-Push:
 ~   *
