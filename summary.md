@@ -89,9 +89,9 @@ Baum der kürzesten Wege (BkW) (Blätter sind Polygonecken)
 
 ## Dualität
 
-$\-x := \left[\begin{smallmatrix}1& \bar{\-x}\end{smallmatrix}\right], \bar{\-x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
+$\-x := \left[\begin{smallmatrix}1& \bar{\-x}\end{smallmatrix}\right]^t, \bar{\-x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
 
-$\-u^t \-x := \left[\begin{smallmatrix}u_0&u_1&\dots&u_d\end{smallmatrix}\right] \cdot\left[\begin{smallmatrix}1&x_1&\vdots&x_d\end{smallmatrix}\right]≥  0$
+$\-u^t \-x := \left[\begin{smallmatrix}u_0&u_1&\dots&u_d\end{smallmatrix}\right] \cdot\left[\begin{smallmatrix}1&x_1&\vdots&x_d\end{smallmatrix}\right]^t≥  0$
 
 $\-u$ bezeichnet Halbraumvektor und $\-x$ einen seiner Punkte
 
@@ -187,7 +187,7 @@ Sei $Z(x,y) = x^2 + y^2$.
 
 Projiziert man den unteren Teil der konvexen Hülle $[\{\begin{pmatrix}\-p_i\\Z(\-p_i)\end{pmatrix}|i=1,\dots,n\}]$ orthogonal auf die xy-Ebene, erhält man $D(P)$
 
-D(P) kann mit *Konvexe Hülle* und mittlerem Aufwand $O(n\log n)$ berechnet Werden
+D(P) kann mit *Konvexe Hülle* und mittlerem Aufwand $O(n\log n)$ berechnet werden
 
 Kanten einer Triangulierung von Q sind konvex (Tal) oder konkav (Berg), ersetze sukzessiv in konkave durch konvexe Kanten
 
@@ -215,21 +215,21 @@ $N^n(u) \begin{cases}=0,&u\notin [0,n+1)\\>0,& u\in (0, n+1)\end{cases}$
 
 *Dopplungsmatrix*: $α_0(z) = 1+z$
 
-*Mittelungsmatrix*: $µ(z) = (1+z)/2$
+*Mittelungsmatrix*: $\mu(z) = (1+z)/2$
 
 *Lane-Riesenfeld-Algorithmus*: $α_n(z) = \frac{(1+z)^{n+1}}{2^n}$, Differenz: $β(z) =α_{n-1}(z)/2$
 
 *Chaikin*: $α_1(z) = ½ (1+z)^2$
 
-*Unterteilungsgleichung*: $\alpha(z) * c(z^2) = b(z)$
+*Unterteilungsgleichung*: $\alpha(z) c(z^2) = b(z)$
 
 Differenzenschema zu einem $α(z)$: $β(z)=\frac{α(z)}{1+z}$ (Polynomdivision). Existiert nur wenn $α(z)$ den Faktor (1+z) hat, bzw. wenn $α(-1) = \sum_{j\in \mathbb{Z}} α_{2j} - \sum_{j\in \mathbb{Z}} α_{2j+1} = 0$
 
 Für konvergentes $α(z)$ gilt $\sum_{j\in \mathbb{Z}} α_{2j} = \sum_{j\in \mathbb{Z}} α_{2j+1} = 1$
 
-*Ableitungsschema*: $2 * \alpha(z) / (1+z)$
+*Ableitungsschema*: $2 \alpha(z) / (1+z)$
 
-Existiert das r-te Ableitungsschema von α und ist konvergent, konvergieren alle durch α erzeugten Folgen $(c^m)_{m\in ℕ}$ gegen r-mal stetig differenzierbare Funktionen.
+Existiert das r-te Ableitungsschema von $α$ und ist konvergent, konvergieren alle durch $α$ erzeugten Folgen $(c^m)_{m\in ℕ}$ gegen r-mal stetig differenzierbare Funktionen.
 
 Unterteilungsschema konvergent $\leftrightarrow$ Differenzenschema Nullschema
 
@@ -256,16 +256,16 @@ $\-x^2 = (x^2,y^2)$!
 
 *Verfeinerungsschema $(U_1,U_1)$*: $\gamma(x,y) := ¼ [1\,x\,x^2]\left[\begin{matrix}1\\2\\1\end{matrix}\right]\cdot[1\,2\,1]\left[\begin{matrix}1\\y\\y^2\end{matrix}\right]$
 
-# Wavelets 1D
+## Wavelets 1D
 geg: $s(u) = \sum\limits_{i=0}^{2^m-1}{c_i^m*N^0_i(2^m*u)}$
 oder $s = \sum\limits_{i=0}^{2^{m-1}-1}{(c_i^{m-1}B^{m-1}_i + d_i^{m-1}W_i^{m-1})}$
 
 Zerlegung
 ~   *
-    * For k = m-1, ..., 0
-        * For i = 0, ..., $2^k-1$
-            * $c_i^k = 0.5 * (c_{2i}^{k+1} + c_{2i+1}^{k+1})$
-            * $d_i^k = 0.5 * (c_{2i}^{k+1} - c_{2i+1}^{k+1})
+    * For $k = m-1, \dots, 0$
+        * For $i = 0, \dots, 2^k-1$
+            * $c_i^k = 0.5 (c_{2i}^{k+1} + c_{2i+1}^{k+1})$
+            * $d_i^k = 0.5 (c_{2i}^{k+1} - c_{2i+1}^{k+1})$
 
 Ausgabe: $s = c^0_0*B^0_0 + \sum\limits_{i=0}^{2^0-1}{d_i^0 * W_i^0} + ... + \sum\limits_{i=0}^{2^{m-1}-1}{d_i^{m-1} * W^{m-1}_i}$
 
@@ -276,9 +276,9 @@ Rekonstruktion
     * For k = 0...m-1  
         * For i = 0...$2^k-1$
             * $c_{2i}^{k+1} = c_i^k + d_i^k$
-            * $c_{2i+1}^{k+1} = c_i^k - d_i^k
+            * $c_{2i+1}^{k+1} = c_i^k - d_i^k$
 
-# Wavelets 2D
+## Wavelets 2D
 $s(x, y) = \sum\limits_{i,j=0}^{2^m-1}{c_{ij}^m * B_i^m(x)* B_j^m(y)}$
 
 Zerlegung^2 (Spalte erster Index!)            
@@ -292,7 +292,7 @@ Zerlegung^2 (Spalte erster Index!)
 
 Beachte auch: in der nächsten Matrix sind die $c_{ij}$ nur in den 4er Feldern jeweils links oben!
 
-Rekonstruktion^2 analog zu Zerlegung^2, jedoch mit Faktor 4 statt 0.25 und c, d, e, f, ergebin jeweils (2i,2j), (2i+1,2j) usw.
+Rekonstruktion^2 analog zu Zerlegung^2, jedoch mit Faktor 4 statt 0.25 und c, d, e, f, ergeben jeweils (2i,2j), (2i+1,2j) usw.
 
 
 # Flussmaximierung
@@ -329,10 +329,10 @@ solange es einen Weg $q\leadsto s$ in $G_f$ gibt, erhöhe f maximal über diesen
 Fluss mit Rein-Raus $>= 0$
 
 **Höhenfunktion**
-$h(q) = |V|$, h(s) = 0, \forall (x, y) in E_f: h(x) - h(y) <=1$
+$h(q) = |V|$, h(s) = 0, $\forall (x, y) \in E_f: h(x) - h(y) <=1$
 
 **Push(x,y)**
-schiebe mögliches Maximum (ü und k beachten!) über Kante
+schiebe maximal Mögliches (ü und k beachten!) über Kante
 
 **Pushbar(x,y)**
 $x\in V\setminus \{q,s\}$ und $h(x)-h(y)=1$ und ü$(x)>0$ und $(x,y)\in E_f$

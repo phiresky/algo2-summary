@@ -9,7 +9,7 @@ Kapitel & Name & Laufzeit \\\hline
 6 Flüsse & Edmonds-Karp   & $O( |E| ^2 * |V| )$ \\
 6 Flüsse & Präfluss-Push  & $O( |V| ^2 * |E| )$ \\
 6 Flüsse & An-Die-Spitze  & $O( |V| ^3)$ \\
-7 & Paare & $O(|E| \cdot min\{|L|,|R|\})$ \\
+7 & Paare & $O(|E| \cdot \min\{|L|,|R|\})$ \\
 7 & Vergrößernder Weg & $O(|V|\cdot |E|)$ \\
 8.3 & Min Schnitt & $O(|V|^2 \log |V|)$ richtig mit $P\in \Theta(1/\log |V|)$\\
 9 & Welzl & mittl: $O(n)$ \\
