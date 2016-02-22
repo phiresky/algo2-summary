@@ -258,7 +258,12 @@ $\-x^2 = (x^2,y^2)$!
 *Verfeinerungsschema $(U_1,U_1)$*: $\gamma(x,y) := ¼ [1\,x\,x^2]\left[\begin{matrix}1\\2\\1\end{matrix}\right]\cdot[1\,2\,1]\left[\begin{matrix}1\\y\\y^2\end{matrix}\right]$
 
 ## Wavelets 1D
-geg: $s(u) = \sum\limits_{i=0}^{2^m-1}{c_i^m*N^0_i(2^m*u)}$
+
+**Grundfunktionen** $B_i^k := N^0_i(2^k u)$
+
+**Wavelets** $W_i^k := B_{2i}^{k+1} - B_{2i}^{k+1}$
+
+geg: $s(u) = \sum\limits_{i=0}^{2^m-1}{c_i^m N^0_i(2^m u)}$
 oder $s = \sum\limits_{i=0}^{2^{m-1}-1}{(c_i^{m-1}B^{m-1}_i + d_i^{m-1}W_i^{m-1})}$
 
 Zerlegung
@@ -268,9 +273,9 @@ Zerlegung
             * $c_i^k = 0.5 (c_{2i}^{k+1} + c_{2i+1}^{k+1})$
             * $d_i^k = 0.5 (c_{2i}^{k+1} - c_{2i+1}^{k+1})$
 
-Ausgabe: $s = c^0_0*B^0_0 + \sum\limits_{i=0}^{2^0-1}{d_i^0 * W_i^0} + ... + \sum\limits_{i=0}^{2^{m-1}-1}{d_i^{m-1} * W^{m-1}_i}$
+Ausgabe: $s = c^0_0 B^0_0 + \sum\limits_{i=0}^{2^0-1}{d_i^0 W_i^0} + ... + \sum\limits_{i=0}^{2^{m-1}-1}{d_i^{m-1} W^{m-1}_i}$
 
-$B_i^k = N^0_i(2^k*u)$
+
 
 Rekonstruktion
 ~   *
