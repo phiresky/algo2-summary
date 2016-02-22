@@ -220,9 +220,9 @@ $N^n(u) \begin{cases}=0,&u\notin [0,n+1)\\>0,& u\in (0, n+1)\end{cases}$
 
 *Chaikin*: $α_1(z) = ½ (1+z)^2$
 
-Differenzenschema zu einem $α(z)$: $β(z)=\frac{α(z)}{1+z}$ (Polynomdivision). Existiert nur wenn $α(z)$ den Faktor (1+z) hat, bzw. wenn $α(-1) = \sum_{j\in ℤ} α_{2j} - \sum_{j\in ℤ} α_{2j+1} = 0$
+Differenzenschema zu einem $α(z)$: $β(z)=\frac{α(z)}{1+z}$ (Polynomdivision). Existiert nur wenn $α(z)$ den Faktor (1+z) hat, bzw. wenn $α(-1) = \sum_{j\in \mathbb{Z}} α_{2j} - \sum_{j\in \mathbb{Z}} α_{2j+1} = 0$
 
-Für konvergentes $α(z)$ gilt $\sum_{j\in ℤ} α_{2j} = \sum_{j\in ℤ} α_{2j+1} = 1$
+Für konvergentes $α(z)$ gilt $\sum_{j\in \mathbb{Z}} α_{2j} = \sum_{j\in \mathbb{Z}} α_{2j+1} = 1$
 
 Existiert das r-te Ableitungsschema von α und ist konvergent, konvergieren alle durch α erzeugten Folgen $(c^m)_{m\in ℕ}$ gegen r-mal stetig differenzierbare Funktionen.
 
@@ -231,17 +231,17 @@ Existiert das r-te Ableitungsschema von α und ist konvergent, konvergieren alle
 
 # Unterteilung für Flächen
 
-Matrix $C=\-c_{ℤ^2}$ hat das Symbol
+Matrix $C=\-c_{\mathbb{Z}^2}$ hat das Symbol
 
 $$\-c(\-x) := \-c(x,y)$$
-$$:= \sum_{i\inℤ}\sum_{j∈ℤ} \-c_{ij} x^i y^j$$
-$$=: \sum_{\-i \in ℤ^2} \-c_{\-i} \-x^{\-i}$$
+$$:= \sum_{i\in\mathbb{Z}}\sum_{j \in \mathbb{Z}} \-c_{ij} x^i y^j$$
+$$=: \sum_{\-i \in \mathbb{Z}^2} \-c_{\-i} \-x^{\-i}$$
 
 Seien U,V Unterteilungsalgorithmen mit Symbol $α(x), β(x)$
 
-Das Unterteilte Netz $B:= \-b_{ℤ^2} := UCV^t$ hat das Symbol $\-b(x,y):=α(x)\-c(x^2,y^2)β(y)$
+Das Unterteilte Netz $B:= \-b_{\mathbb{Z}^2} := UCV^t$ hat das Symbol $\-b(x,y):=α(x)\-c(x^2,y^2)β(y)$
 
-$\gamma(x,y):=α(x)β(y)$ ist das Symbol des *Tepus(U,V)* mit der Unterteilungsgleichung $\-b(\-x) = \gamma(\-x)\-c(\-x^2)\quad \-b_{\-i} = \sum_{\-k\in ℤ^2} \gamma_{\-i-2\-k} \-c_\-k$
+$\gamma(x,y):=α(x)β(y)$ ist das Symbol des *Tepus(U,V)* mit der Unterteilungsgleichung $\-b(\-x) = \gamma(\-x)\-c(\-x^2)\quad \-b_{\-i} = \sum_{\-k\in \mathbb{Z}^2} \gamma_{\-i-2\-k} \-c_\-k$
 
 $\-x^2 = (x^2,y^2)$!
 
