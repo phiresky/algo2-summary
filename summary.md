@@ -503,7 +503,7 @@ c & -A
 \end{array}
 <= [1, 1, .... , 1]$
 
-# Simplexalgorithmus
+## Simplexalgorithmus
 
 $\-y(\-x) = A\-x$
 $$\left[\begin{matrix}y_1\\\vdots\\y_m\end{matrix}\right] = \left[\begin{matrix}a_{11}&\dots&a_{1n}\\\vdots&&\vdots\\a_{m1}&\dots&a_{mn}\end{matrix}\right]\left[\begin{matrix}x_1\\\vdots\\x_n\end{matrix}\right]$$
