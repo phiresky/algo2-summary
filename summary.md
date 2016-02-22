@@ -124,7 +124,7 @@ Jede Facectte liegt auf Rand eines Halbraums (FHR)
 
 P ist konvexe Hülle seiner Eckenmenge
 
-Ist $P$ ein konvexes Polyeder mit den Ecken $\-p_1,\dots,\-p_e$ und den FHRen $\-u_1^*,\dots,\-u_f^*$, hat die Menge $U^*:=\{\-u^*|\-u^* \supset P\} ⊂ A^*$ die Ecken $\-w_1^*,\dots,\-w_f^*$ und die FHRe $\-p_1, \dots,\-p_e$. Dual ausgedrückt heißt das, dass die Menge $U:=\{\-u| \-u^* \supset P\}⊂ A$ die Ecken $\-w_i$ und die FHRe $\-p_i^*$ hat.
+Ist $P$ ein konvexes Polyeder mit den Ecken $\-p_1,\dots,\-p_e$ und den FHRen $\-u_1^*,\dots,\-u_f^*$, hat die Menge $U^*:=\{\-u^*|\-u^* \supset P\} ⊂ A^*$ die Ecken $\-u_1^*,\dots,\-u_f^*$ und die FHRe $\-p_1, \dots,\-p_e$. Dual ausgedrückt heißt das, dass die Menge $U:=\{\-u| \-u^* \supset P\}⊂ A$ die Ecken $\-u_i$ und die FHRe $\-p_i^*$ hat.
 
 Polyeder P und $U⊂ A$ heißen dual zueinander.
 
