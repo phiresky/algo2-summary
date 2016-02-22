@@ -288,7 +288,7 @@ Zerlegung^2 (Spalte erster Index!)
             * $c_{ij}^k = 0.25 * (c_{2i,2j}^{k+1} + c_{2i+1,2j}^{k+1} + c_{2i,2j+1}^{k+1} + c_{2i+1,2j+1}^{k+1})$
             * $d_{ij}^k = 0.25 * (+ - + -)$
             * $e_{ij}^k = 0.25 * (+ + - -)$
-            * $f_{ij}^k = 0.25 * (+ - + -)$
+            * $f_{ij}^k = 0.25 * (+ - - +)$
 
 Beachte auch: in der nächsten Matrix sind die $c_{ij}$ nur in den 4er Feldern jeweils links oben!
 
