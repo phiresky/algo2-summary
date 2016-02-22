@@ -50,9 +50,9 @@ First fit
         * Bestimme kleinstes j mit $b_i+\sum_{b\in B_j} b ≤ h$
         * Füge $b_i$ zu $B_j$ hinzu
 
-2-kompetitiv
+ist 2-kompetitiv.
 
-Falls $k_A ≤ a + c k_{min}$ für alle Eingaben, heißt A c-kompetitiv.
+Algorithmus A ist **c-kompetitiv** falls $k_A ≤ a + c k_{min}$ für alle Eingaben
 
 Türsuche
 ~   *
@@ -73,7 +73,7 @@ Bestmöglich: 9-kompetetitiv (z.B. für $f_i = 2^i$)
 
 Gleich Türsuche, nur mit mehr als zwei Wänden (Halbgeraden).
 
-Bestmöglich: Für $f_i = (\frac{m}{m-1})^i$ ist Sternsuche c-kompetitiv mit $c:=2m(\frac{m}{m-1})^{m-1} + 1 < 2me + 1$
+Bestmöglich: Für $f_i = (\frac{m}{m-1})^i$ c-kompetitiv mit $c:=2m(\frac{m}{m-1})^{m-1} + 1 < 2me + 1$
 
 ## Suche in Polygonen
 
@@ -214,9 +214,9 @@ $N^n(u) \begin{cases}=0,&u\notin [0,n+1)\\>0,& u\in (0, n+1)\end{cases}$
 
 ## Symbole
 
-*Dopplungsmatrix*: $α_0(z) = 1+z$
+*Dopplung*: $α_0(z) = 1+z$
 
-*Mittelungsmatrix*: $\mu(z) = (1+z)/2$
+*Mittelung*: $\mu(z) = (1+z)/2$
 
 *Lane-Riesenfeld-Algorithmus*: $α_n(z) = \frac{(1+z)^{n+1}}{2^n}$, Differenz: $β(z) =α_{n-1}(z)/2$
 
@@ -285,16 +285,16 @@ Rekonstruktion
             * $c_{2i+1}^{k+1} = c_i^k - d_i^k$
 
 ## Wavelets 2D
-$s(x, y) = \sum\limits_{i,j=0}^{2^m-1}{c_{ij}^m * B_i^m(x)* B_j^m(y)}$
+$s(x, y) = \sum\limits_{i,j=0}^{2^m-1}{c_{ij}^m B_i^m(x) B_j^m(y)}$
 
 Zerlegung^2 (Spalte erster Index!)            
 ~   *
     * Für k = m-1...0
         * Für i,j = 0...$2^k-1$
-            * $c_{ij}^k = 0.25 * (c_{2i,2j}^{k+1} + c_{2i+1,2j}^{k+1} + c_{2i,2j+1}^{k+1} + c_{2i+1,2j+1}^{k+1})$
-            * $d_{ij}^k = 0.25 * (+ - + -)$
-            * $e_{ij}^k = 0.25 * (+ + - -)$
-            * $f_{ij}^k = 0.25 * (+ - - +)$
+            * $c_{ij}^k = 0.25 (c_{2i,2j}^{k+1} + c_{2i+1,2j}^{k+1} + c_{2i,2j+1}^{k+1} + c_{2i+1,2j+1}^{k+1})$
+            * $d_{ij}^k = 0.25 (+ - + -)$
+            * $e_{ij}^k = 0.25 (+ + - -)$
+            * $f_{ij}^k = 0.25 (+ - - +)$
 
 Beachte auch: in der nächsten Matrix sind die $c_{ij}$ nur in den 4er Feldern jeweils links oben!
 
@@ -323,11 +323,11 @@ Residualnetz $F_f := (G_f, q, s, k_f:=k-f)$
 
 ### Ford-Fulkerson (naiv)
 
-solange es einen Weg $q\leadsto s$ in $G_f$ gibt, erhöhe f maximal über diesen Weg.
+solange es einen Weg $q\leadsto s$ in $G_f$ gibt, erhöhe f maximal über diesen Weg. (Nur für $k∈ℚ$)
 
 ### Edmonds-Karp
 
-=FF, erhöhen immer längs eines kürzesten Pfades in $G_f$
+=FF, erhöhen immer längs eines kürzesten Pfades in $G_f$. (für bel. $k∈ℝ$)
 
 ### Präfluss-Pusch
 
