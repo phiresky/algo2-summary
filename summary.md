@@ -1,3 +1,5 @@
+$\def\-#1{\mathbf{#1}}$
+
 **I Geometrische Algorithmen**
 
 # Bewegungsplanung bei unvollständiger Information
@@ -60,6 +62,8 @@ Türsuche
         * gehe $f_i$ Meter die Wand entlang und zurück
         * wechsle Laufrichtung
 
+$d:=\text{dist}(\-s, \text{Tür}) = f_n + ε \in (f_n, f_{n+1}]$
+
 Legt $L=2\sum_{i=0}^n f_i + d$ zurück (oder $^{n+1}$)
 
 $L\in\Theta(n^2) = \Theta(d^2)$
@@ -93,11 +97,11 @@ $$\-x := \left[\begin{matrix}1\\ \bar{\-x}\end{matrix}\right], \bar{\-x} \in \ma
 
 $$\-u^t \-x := \left[\begin{smallmatrix}u_0&u_1&\dots&u_d\end{smallmatrix}\right] \cdot\left[\begin{matrix}1\\x_1\\\vdots\\x_d\end{matrix}\right]≥  0$$
 
-$\-u$ bezeichnet Halbraum und $\-x$ einen seiner Punkte
+$\-u$ bezeichnet Halbraumvektor und $\-x$ einen seiner Punkte
 
-Nur betrachtet mit $\begin{pmatrix}1&0&\dots&0\end{pmatrix}^t$ d.h. $u_0>0$, normiert $u_0=1$.
+Nur betrachtet mit $\begin{pmatrix}1&0&\dots&0\end{pmatrix}^t$ im Inneren, d.h. $u_0>0$, normiert $u_0=1$.
 
-$\-u^*$ ist Halbraum zu $\-u$.
+$\-u^*$ ist *dual* zu $\-u$ und bezeichnet den Halbraum.
 
 $\-x \in \-u^* \Leftrightarrow \-u \in \-x^*$ (Dualität)
 
@@ -201,13 +205,56 @@ Die Gebiete von $D(P)$ sind disjunkte Dreiecke und zerlegen die konvexe Hülle $
 
 # Stationäre Unterteilung für Kurven
 
-todo
+## Kardinale Splines
+
+$N^0(u):=\begin{cases}1,&u\in [0,1)\\ 0,&sonst\end{cases}$
+
+$N^n(u):= \int_{u-1}^u N^{n-1}(t) dt$
+
+$N^n(u) \begin{cases}=0,&u\notin [0,n+1)\\>0,& u\in (0, n+1)\end{cases}$
+
+
+
+## Symbole
+
+*Dopplungsmatrix*: $α_0(z) = 1+z$
+
+*Mittelungsmatrix*: $µ(z) = (1+z)/2$
+
+*Lane-Riesenfeld-Algorithmus*: $α_n(z) = \frac{(1+z)^{n+1}}{2^n}$, Differenz: $β(z) =α_{n-1}(z)/2$
+
+*Chaikin*: $α_1(z) = ½ (1+z)^2$
+
+Differenzenschema zu einem $α(z)$: $β(z)=\frac{α(z)}{1+z}$ (Polynomdivision). Existiert nur wenn $α(z)$ den Faktor (1+z) hat, bzw. wenn $α(-1) = \sum_{j\in ℤ} α_{2j} - \sum_{j\in ℤ} α_{2j+1} = 0$
+
+Für konvergentes $α(z)$ gilt $\sum_{j\in ℤ} α_{2j} = \sum_{j\in ℤ} α_{2j+1} = 1$
+
+Existiert das r-te Ableitungsschema von α und ist konvergent, konvergieren alle durch α erzeugten Folgen $(c^m)_{m\in ℕ}$ gegen r-mal stetig differenzierbare Funktionen.
+
+**konvergent**: für jede Maske ist die Summe der Gewichte 1
 
 ---
 
-# bla
+# Unterteilung für Flächen
 
-Das Symbol $\gamma(x,y) := \sum \gamma_{ij} x^i y^j$
+Matrix $C=\-c_{ℤ^2}$ hat das Symbol
+
+$$\-c(\-x) := \-c(x,y)$$
+$$:= \sum_{i\inℤ}\sum_{j∈ℤ} \-c_{ij} x^i y^j$$
+$$=: \sum_{\-i \in ℤ^2} \-c_{\-i} \-x^{\-i}$$
+
+Seien U,V Unterteilungsalgorithmen mit Symbol $α(x), β(x)$
+
+Das Unterteilte Netz $B:= \-b_{ℤ^2} := UCV^t$ hat das Symbol $\-b(x,y):=α(x)\-c(x^2,y^2)β(y)$
+
+$\gamma(x,y):=α(x)β(y)$ ist das Symbol des *Tepus(U,V)* mit der Unterteilungsgleichung $\-b(\-x) = \gamma(\-x)\-c(\-x^2)\quad \-b_{\-i} = \sum_{\-k\in ℤ^2} \gamma_{\-i-2\-k} \-c_\-k$
+
+$\-x^2 = (x^2,y^2)$!
+
+*Verfeinerungsschema $(U_1,U_1)$*: $\gamma(x,y) := ¼ [1\,x\,x^2]\left[\begin{matrix}1\\2\\1\end{matrix}\right]\cdot[1\,2\,1]\left[\begin{matrix}1\\y\\y^2\end{matrix}\right]$
+
+## Masken
+
 
 ---
 
@@ -514,8 +561,8 @@ Die Lösung ist dann, dass alle $y_i$ die oben an der Tabelle stehen = 0 sind.
 
 **Util**
 
-* $\-a \cdot \-b = |\-a||\-b| \cos\sphericalangle(\-a,\-b)$
+$\-a \cdot \-b = |\-a||\-b| \cos\sphericalangle(\-a,\-b)$
+
+$\sum_{k=0}^n 2^k = 2^{n+1}-1$
 
 <style>dd ul{list-style-type:none}</style>
-
-$\def\-#1{\mathbf{#1}}$
