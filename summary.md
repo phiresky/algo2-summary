@@ -397,7 +397,9 @@ Vergrößernder Weg
     * $h(x) ← 0$ wenn x frei, -1 wenn x gebunden
     * Solange kein vergrößernder Pfad gefunden und gibt unutersuchte Kante $\langle x,y\rangle$ mit $h(x) \in 2ℕ_0$
     * if $h(y) = -1$
-    * **unwichtig**
+        * $v(y) \gets x, v(p(y))\gets y, h(y)\gets h(x)+1, h(p(y))\gets h(y)+1$
+    * if $y=v^i(x)$ und $i∈2ℕ_0$ schrumpfe die Blüte $x-v(x)-v^2(x)-\dots-y-x$
+    * if $h(y)∈2ℕ$ und $w_x:=v^{h(x)}(x) ≠ w_y := v^{h(y)}(y)$, ist ein vergrößernder Pfad $w_x\leadsto w_y$ über $⟨x,y⟩$ gefunden
 
 ## Maximal gewichtete Paarungen
 
@@ -428,8 +430,6 @@ kleinster xz-Schnitt in G lässt sich mit Flussmaximierung in $O(|V|^4)$ berechn
 *Monte-Carlo-Algorithmus* = stochastischer Algorithmus, kann falsche Ergebnisse Liefern
 
 *Las-Vegas-Algorithmus* = stoch. Algo., immer richtig
-
-## Rekursive Kontraktion
 
 
 **IV Optimierungsalgorithmen**
