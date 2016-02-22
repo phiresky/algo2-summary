@@ -87,15 +87,13 @@ Strategie existiert mit $\frac{l}{d} \in O(n)$
 
 Baum der kürzesten Wege (BkW) (Blätter sind Polygonecken)
 
----
-
 # Konvexe Hüllen
 
 ## Dualität
 
-$$\-x := \left[\begin{matrix}1\\ \bar{\-x}\end{matrix}\right], \bar{\-x} \in \mathbb R^d$$ bilden *affinen Raum* $A^d$.
+$\-x := \left[\begin{matrix}1\\ \bar{\-x}\end{matrix}\right], \bar{\-x} \in \mathbb R^d$ bilden *affinen Raum* $A^d$.
 
-$$\-u^t \-x := \left[\begin{smallmatrix}u_0&u_1&\dots&u_d\end{smallmatrix}\right] \cdot\left[\begin{matrix}1\\x_1\\\vdots\\x_d\end{matrix}\right]≥  0$$
+$\-u^t \-x := \left[\begin{smallmatrix}u_0&u_1&\dots&u_d\end{smallmatrix}\right] \cdot\left[\begin{matrix}1\\x_1\\\vdots\\x_d\end{matrix}\right]≥  0$
 
 $\-u$ bezeichnet Halbraumvektor und $\-x$ einen seiner Punkte
 
@@ -162,7 +160,6 @@ Für jede Ecke $\-p$:
     * ...zeug
 4. Dualisiere, verschiebe und gib $\bigcap_{\-u \in U} \-u^*-\-v$ aus
 
----
 
 # Distanzprobleme
 
@@ -199,8 +196,6 @@ Die Gebiete von $D(P)$ sind disjunkte Dreiecke und zerlegen die konvexe Hülle $
 #. minimale Spannbäume von P liegen auf D(P) (findbar mit Kruskal (greedy))
 #. Rundweg um minimalen Spannbaum ist 2-kompetitiv zu kürzestem Rundweg.
 
----
-
 **II Unterteilungsalgorithmen**
 
 # Stationäre Unterteilung für Kurven
@@ -233,7 +228,6 @@ Existiert das r-te Ableitungsschema von α und ist konvergent, konvergieren alle
 
 **konvergent**: für jede Maske ist die Summe der Gewichte 1
 
----
 
 # Unterteilung für Flächen
 
@@ -253,10 +247,6 @@ $\-x^2 = (x^2,y^2)$!
 
 *Verfeinerungsschema $(U_1,U_1)$*: $\gamma(x,y) := ¼ [1\,x\,x^2]\left[\begin{matrix}1\\2\\1\end{matrix}\right]\cdot[1\,2\,1]\left[\begin{matrix}1\\y\\y^2\end{matrix}\right]$
 
-## Masken
-
-
----
 
 **III Graphen-Algorithmen**
 
@@ -348,7 +338,6 @@ An die Spitze
         * Falls $h_{alt} < h(x)$, setze x an Spitze von L
         * $x ←$ Nachfolger von x in L
 
----
 
 # Zuordnungsprobleme
 
@@ -410,7 +399,6 @@ kleinster xz-Schnitt in G lässt sich mit Flussmaximierung in $O(|V|^4)$ berechn
 
 ## Rekursive Kontraktion
 
----
 
 **IV Optimierungsalgorithmen**
 
@@ -432,7 +420,6 @@ Welzl
             * $C←\text{Welzl}(P\setminus \{\-p\}, R∪ \{\-p\})$
     * Gib C aus
 
----
 
 # Lineare Programmierung
 
@@ -557,7 +544,6 @@ Simplex
 
 Die Lösung ist dann, dass alle $y_i$ die oben an der Tabelle stehen = 0 sind.
 
----
 
 **Util**
 
