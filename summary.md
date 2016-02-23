@@ -261,7 +261,7 @@ $\-x^2 = (x^2,y^2)$!
 
 **Grundfunktionen** $B_i^k := N^0_i(2^k u)$
 
-**Wavelets** $W_i^k := B_{2i}^{k+1} - B_{2i}^{k+1}$
+**Wavelets** $W_i^k := B_{2i}^{k+1} - B_{2i+1}^{k+1}$
 
 geg: $s(u) = \sum\limits_{i=0}^{2^m-1}{c_i^m N^0_i(2^m u)}$
 oder $s = \sum\limits_{i=0}^{2^{m-1}-1}{(c_i^{m-1}B^{m-1}_i + d_i^{m-1}W_i^{m-1})}$
@@ -298,7 +298,7 @@ Zerlegung^2 (Spalte erster Index!)
 
 Beachte auch: in der nächsten Matrix sind die $c_{ij}$ nur in den 4er Feldern jeweils links oben!
 
-Rekonstruktion^2 analog zu Zerlegung^2, jedoch mit Faktor 4 statt 0.25 und c, d, e, f, ergeben jeweils (2i,2j), (2i+1,2j) usw.
+Rekonstruktion^2 analog zu Zerlegung^2, jedoch ohne Faktor 0.25 und c, d, e, f, ergeben jeweils (2i,2j), (2i+1,2j) usw.
 
 
 # Flussmaximierung
