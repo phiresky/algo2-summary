@@ -104,7 +104,7 @@ $\-x \in \-u^* \Leftrightarrow \-u \in \-x^*$ (Dualität)
 
 ## Konvexe Mengen
 
-Verbindungsstrecke $\-x := \-a (1-t) + \-b t,\quad t\in [0,1]$ wird genannt $\-{ab}$.
+Verbindungsstrecke $\-x := \-a (1-t) + \-b t,\quad t\in [0,1]$ wird genannt $\-{ab}$ (Konvexkombinationen).
 
 $M⊂ A$ ist *konvex* wenn sie zu je zwei ihrer Punkte auch die Verbingungsstrecke enthält.
 
