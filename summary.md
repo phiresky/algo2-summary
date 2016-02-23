@@ -220,7 +220,7 @@ $N^n(u) \begin{cases}=0,&u\notin [0,n+1)\\>0,& u\in (0, n+1)\end{cases}$
 
 *Lane-Riesenfeld-Algorithmus*: $α_n(z) = \frac{(1+z)^{n+1}}{2^n}$, Differenz: $β(z) =α_{n-1}(z)/2$
 
-*Chaikin*: $α_1(z) = ¼ (1+z)^3$
+*Chaikin*: $α_2(z) = ¼ (1+z)^3$
 
 *Unterteilungsgleichung*: $\alpha(z) c(z^2) = b(z)$
 
